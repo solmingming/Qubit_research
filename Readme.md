@@ -83,7 +83,7 @@ pursuing meaningful outcomes without being limited to a single approach.
       <td><b>김은솜</b></td>
       <td>Member</td>
       <td>이화여자대학교 컴퓨터공학과 22</td>
-      <td><code>HTML</code> <code>CSS</code> <code>C++</code></td>
+      <td><code>Java</code> <code>Python</code> <code>C++</code></td>
     </tr>
     <tr>
       <td><b>김정민</b></td>
