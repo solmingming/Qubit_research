@@ -1,64 +1,86 @@
+<!-- HEADER -->
 <div align="center">
 
   <h1>딥러닝을 활용한 양자 노이즈 완화</h1>
   <p><em>Quantum Noise Mitigation with Deep Learning</em></p>
 
+  <!-- 핵심 배지 -->
   <p>
-    <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit Badge"/>
-    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch Badge"/>
-    <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python Badge"/>
-    <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter Badge"/>
+    <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit"/>
+    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
+    <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"/>
+    <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
   </p>
 
+  <!-- 네비게이션 -->
+  <p>
+    <a href="#-프로젝트-소개">소개</a> ·
+    <a href="#-project-overview-english">English</a> ·
+    <a href="#-실험-설계--아키텍처">아키텍처</a> ·
+    <a href="#-members">Members</a> ·
+    <a href="#-roadmap">Roadmap</a>
+  </p>
+
+  <!-- 티저 이미지 (나중에 결과 나오면 추가) -->
+  <img src="./docs/teaser.png" alt="Project Teaser" width="720"/>
 </div>
 
-<hr/>
+---
 
-<h2>📌 프로젝트 소개</h2>
-<p>
-팀명 <b>‘Qubit’</b>은 양자컴퓨팅의 최소 단위이자 여러 가능성을 동시에 품을 수 있는
-<b>‘중첩(Superposition)’</b> 개념에서 영감을 얻었습니다.
-</p>
-<p>
-우리 팀은 각자의 <b>다양한 역량과 잠재력</b>을 바탕으로,
-하나의 방식에 얽매이지 않고 새로운 시도를 거듭하며 <b>최고의 결과와 성장을 추구</b>합니다.
-</p>
+## 📌 프로젝트 소개
+팀명 <b>Qubit</b>은 양자컴퓨팅의 최소 단위이자  
+여러 가능성을 동시에 품는 <b>중첩(Superposition)</b> 개념에서 영감을 얻었습니다.
 
-<ul>
-  <li>⚡ Qiskit을 이용해 노이즈가 포함된 양자 회로 데이터를 생성</li>
-  <li>🧩 Autoencoder / VAE 모델을 통해 상태 복원</li>
-  <li>📊 Fidelity, Trace distance 지표를 활용해 성능 평가</li>
-</ul>
+우리 팀은 <b>다양한 역량과 잠재력</b>을 결합해  
+<b>실험적 탐구</b>와 <b>성장</b>을 최우선으로 하는 프로젝트를 만들어 갑니다.
 
-<p><b>목표</b>: 학부 수준에서 <b>딥러닝 기반 노이즈 완화</b>의 가능성을 실험적으로 검증</p>
+**주요 연구 내용**
+- ⚡ Qiskit으로 노이즈 포함 양자 회로 데이터 생성  
+- 🧩 Autoencoder / VAE 모델로 상태 복원  
+- 📊 Fidelity, Trace distance 지표로 성능 평가  
 
-<hr/>
+> **목표:** 학부 수준에서 **딥러닝 기반 노이즈 완화**의 실험적 가능성 검증
 
-<h2>🌍 Project Overview (English)</h2>
-<p>
-Our team name <b>“Qubit”</b> is inspired by the fundamental unit of quantum computing and the concept of <b>superposition</b>, where a qubit can exist in multiple states at once.
-</p>
-<p>
-We aim to combine the <b>versatile skills and potential</b> of each member, pursuing meaningful outcomes without being limited to a single approach.
-</p>
+---
 
-<ul>
-  <li>⚡ Generate noisy quantum circuit data with Qiskit</li>
-  <li>🧩 Restore original states using Autoencoder / VAE models</li>
-  <li>📊 Evaluate performance with fidelity and trace distance</li>
-</ul>
+## 🌍 Project Overview (English)
+Our team name <b>“Qubit”</b> is inspired by the concept of <b>superposition</b>,  
+where a qubit can exist in multiple states at once.  
 
-<p><b>Goal</b>: To demonstrate the feasibility of <b>deep learning–based noise mitigation</b> at the undergraduate research level.</p>
+We aim to integrate <b>versatile skills</b> of our members  
+to pursue meaningful outcomes through <b>evidence-driven research</b>.
 
-<hr/>
+**Focus**
+- ⚡ Generate noisy quantum circuit data via Qiskit  
+- 🧩 Restore original states using Autoencoder / VAE  
+- 📊 Evaluate using fidelity & trace distance  
 
-<h2>⏳ 프로젝트 기간</h2>
-<p><b>2025.09 ~ 2026.07</b></p>
+---
 
-<hr/>
+## ⏳ 프로젝트 기간
+<b>2025.09 ~ 2026.07</b>
 
-<h2>👩‍💻 Members</h2>
+---
 
+## 🧪 실험 설계 & 아키텍처 (Draft)
+<details>
+<summary><b>파이프라인 개요</b></summary>
+
+Ideal Circuits ─> Noise Injection ─> Noisy Data
+│
+┌────────────┴────────────┐
+│ │
+Train Split Test Split
+│ │
+Model Training Model Evaluation
+
+</details>
+
+> 이후 모델 구조 다이어그램, 결과 그래프 등을 `docs/`에 추가 후 여기 표시 예정
+
+---
+
+## 👩‍💻 Members
 <table>
   <thead>
     <tr>
@@ -76,7 +98,7 @@ We aim to combine the <b>versatile skills and potential</b> of each member, purs
       <td>이화여자대학교 컴퓨터공학과 22 / 경영 복수전공</td>
       <td><code>HTML</code> <code>CSS</code> <code>React</code> <code>Tailwind</code> <code>C</code> <code>JavaScript</code></td>
       <td>
-        <a href="./docs/solmin Lee_cv.pdf">
+        <a href="./docs/solmin Lee_cv.pdf" target="_blank">
           <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue">
         </a>
       </td>
@@ -87,7 +109,7 @@ We aim to combine the <b>versatile skills and potential</b> of each member, purs
       <td>이화여자대학교 컴퓨터공학과 22</td>
       <td><code>Java</code> <code>Python</code> <code>C++</code></td>
       <td>
-        <a href="./docs/eunsom Kim_cv.pdf">
+        <a href="./docs/eunsom Kim_cv.pdf" target="_blank">
           <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue">
         </a>
       </td>
@@ -98,7 +120,7 @@ We aim to combine the <b>versatile skills and potential</b> of each member, purs
       <td>이화여자대학교 컴퓨터공학과 22</td>
       <td><code>HTML</code> <code>CSS</code> <code>C++</code></td>
       <td>
-        <a href="./docs/jeongmin Kim_cv.pdf">
+        <a href="./docs/jeongmin Kim_cv.pdf" target="_blank">
           <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue">
         </a>
       </td>
@@ -106,20 +128,16 @@ We aim to combine the <b>versatile skills and potential</b> of each member, purs
   </tbody>
 </table>
 
-<hr/>
+---
 
-<h2>🧰 Tech &amp; Tools</h2>
+## 🗺️ Roadmap
+- [ ] 데이터셋/노이즈 시뮬레이션 초기 버전 구축  
+- [ ] Autoencoder/Variational Autoencoder 학습  
+- [ ] Fidelity·Trace distance 비교 실험  
+- [ ] 결과 시각화 & 보고서 작성  
+- [ ] 최종 포스터/발표 준비  
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit"/>
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
-  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
-  <img src="https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white" alt="NumPy"/>
-  <img src="https://img.shields.io/badge/Matplotlib-11557c?logo=matplotlib&logoColor=white" alt="Matplotlib"/>
-</p>
-
-<hr/>
+---
 
 <p align="center">
   <sub>© 2025 Team Qubit — All Rights Reserved</sub><br/>
