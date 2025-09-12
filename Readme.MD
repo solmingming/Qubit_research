@@ -18,7 +18,7 @@
     <a href="#-project-overview-english">English</a> ·
     <a href="#-실험-설계--아키텍처">아키텍처</a> ·
     <a href="#-members">Members</a> ·
-    <a href="#-roadmap">Roadmap</a>
+
   </p>
 
   <!-- 티저 이미지 (나중에 결과 나오면 추가) -->
