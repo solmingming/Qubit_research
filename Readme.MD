@@ -76,7 +76,7 @@ We aim to combine the <b>versatile skills and potential</b> of each member, purs
       <td>이화여자대학교 컴퓨터공학과 22 / 경영 복수전공</td>
       <td><code>HTML</code> <code>CSS</code> <code>React</code> <code>Tailwind</code> <code>C</code> <code>JavaScript</code></td>
       <td>
-        <a href="./docs/solmin_lee_cv.pdf">
+        <a href="./docs/solmin Lee_cv.pdf">
           <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue">
         </a>
       </td>
@@ -87,7 +87,7 @@ We aim to combine the <b>versatile skills and potential</b> of each member, purs
       <td>이화여자대학교 컴퓨터공학과 22</td>
       <td><code>Java</code> <code>Python</code> <code>C++</code></td>
       <td>
-        <a href="./docs/eunsom_kim_cv.pdf">
+        <a href="./docs/eunsom Kim_cv.pdf">
           <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue">
         </a>
       </td>
@@ -98,7 +98,7 @@ We aim to combine the <b>versatile skills and potential</b> of each member, purs
       <td>이화여자대학교 컴퓨터공학과 22</td>
       <td><code>HTML</code> <code>CSS</code> <code>C++</code></td>
       <td>
-        <a href="./docs/jeongmin_kim_cv.pdf">
+        <a href="./docs/jeongmin Kim_cv.pdf">
           <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue">
         </a>
       </td>
