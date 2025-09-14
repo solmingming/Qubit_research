@@ -71,7 +71,8 @@ flowchart TD
   A[Noisy quantum circuit data] --> B[Autoencoder / VAE]
   B --> C[Latent representation]
   C --> D[Reconstructed ideal expectation]
-  D --> E[Evaluation: Fidelity, TVD, VQE] ```
+  D --> E[Evaluation: Fidelity, TVD, VQE] 
+```
 
 ### ⏳ 프로젝트 기간 <b>2025.09 ~ 2026.07</b> ---
 
