@@ -14,10 +14,10 @@
 
   <!-- 네비게이션 -->
   <p>
-    <a href="#-프로젝트-소개">소개</a> 
-    <a href="#-연구-주제">연구 주제</a>
-    <a href="#-members">Members</a> 
-    <a href="#-roadmap">Roadmap</a> 
+    <a href="#프로젝트-소개">소개</a>
+    <a href="#연구-주제">연구 주제</a>
+    <a href="#members">Members</a>
+    <a href="#roadmap">Roadmap</a>
   </p>
 
 </div>
@@ -43,21 +43,21 @@
 ### 🧐 문제 정의
 - **왜 중요한가?**  
   NISQ 시대의 양자컴퓨터는 decoherence, gate error, readout noise 때문에  
-  결과가 쉽게 틀어집니다.  
+  결과가 쉽게 틀어집니다.
 - **기존 기법 한계**  
   Calibration matrix → 큐비트 늘면 행렬 크기 폭발  
   ZNE → 샘플링 많이 필요  
-  PEC → 정확하지만 비용 큼  
+  PEC → 정확하지만 비용 큼
 - **우리가 시도할 것**  
   - Qiskit Fake Backend로 noisy–ideal 데이터 쌍 생성  
   - Autoencoder / VAE로 노이즈 복원 학습  
   - IBM Quantum 백엔드 실데이터로 transfer learning  
-  - LoRA 적용으로 적은 데이터·적은 연산으로 fine-tuning  
+  - LoRA 적용으로 적은 데이터·적은 연산으로 fine-tuning
 
 ### 🎯 목표
 - ZNE 대비 더 낮은 오차, 더 적은 오버헤드  
 - 다른 백엔드·회로에도 잘 적용되는 범용 모델  
-- 학부 수준에서 재현 가능한 실험적 프레임워크 제시  
+- 학부 수준에서 재현 가능한 실험적 프레임워크 제시
 
 ### 🚀 기대 효과
 - NISQ 장비에서 신뢰도 있는 결과 → VQE, QAOA 실행 가능  
@@ -73,28 +73,6 @@ graph TD
   C --> D[Reconstructed Ideal Expectation]
   D --> E[Evaluation (Fidelity, TVD, VQE Error)]
 
-### ⏳ 프로젝트 기간
+## ⏳ 프로젝트 기간 <b>2025.09 ~ 2026.07</b> ---
 
-<b>2025.09 ~ 2026.07</b>
-
-
-### 👩‍💻 Members
-<table> <thead> <tr> <th>이름</th> <th>역할</th> <th>소속/학번</th> <th>Tech Stack</th> <th>CV</th> </tr> </thead> <tbody> <tr> <td><b>이솔민</b></td> <td>Leader</td> <td>이화여자대학교 컴퓨터공학과 22 / 경영 복수전공</td> <td><code>HTML</code> <code>CSS</code> <code>React</code> <code>Tailwind</code> <code>C</code> <code>JavaScript</code></td> <td> <a href="./docs/solmin Lee_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김은솜</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>Java</code> <code>Python</code> <code>C++</code></td> <td> <a href="./docs/eunsom Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김정민</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>HTML</code> <code>CSS</code> <code>C++</code></td> <td> <a href="./docs/jeongmin Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> </tbody> </table>
-
-
-### 🗺️ Roadmap
-
- 시뮬레이터 데이터셋 및 노이즈 조건 설계
-
- Autoencoder/VAE 학습 및 성능 검증
-
- 실제 하드웨어 데이터 전이학습
-
- Fidelity·Trace distance 비교 실험
-
- 결과 시각화 & 보고서 작성
-
- 최종 포스터·발표 준비
-
-
-<p align="center"> <sub>© 2025 Team Qubit — All Rights Reserved</sub><br/> <a href="./docs/">📁 Browse docs/</a> </p> ```
+## 👩‍💻 Members <table> <thead> <tr> <th>이름</th> <th>역할</th> <th>소속/학번</th> <th>Tech Stack</th> <th>CV</th> </tr> </thead> <tbody> <tr> <td><b>이솔민</b></td> <td>Leader</td> <td>이화여자대학교 컴퓨터공학과 22 / 경영 복수전공</td> <td><code>HTML</code> <code>CSS</code> <code>React</code> <code>Tailwind</code> <code>C</code> <code>JavaScript</code></td> <td> <a href="./docs/solmin Lee_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김은솜</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>Java</code> <code>Python</code> <code>C++</code></td> <td> <a href="./docs/eunsom Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김정민</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>HTML</code> <code>CSS</code> <code>C++</code></td> <td> <a href="./docs/jeongmin Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> </tbody> </table> --- ## 🗺️ Roadmap - [ ] 데이터셋/노이즈 시뮬레이션 초기 버전 구축 - [ ] Autoencoder/Variational Autoencoder 학습 - [ ] Fidelity·Trace distance 비교 실험 - [ ] 결과 시각화 & 보고서 작성 - [ ] 최종 포스터/발표 준비 --- <p align="center"> <sub>© 2025 Team Qubit — All Rights Reserved</sub><br/> <a href="./docs/">📁 Browse docs/</a> </p>
