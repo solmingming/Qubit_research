@@ -161,21 +161,32 @@
 
 ## 1. 핵심 키워드
 
-- **양자 컴퓨팅(Quantum Computing)**
-- **노이즈 완화(Error Mitigation)**
-- **머신러닝 기반 오류 보정(ML-based Error Correction)**
-- **딥러닝(DNN, Autoencoder, VAE)**
-- **전이 학습(Transfer Learning)**
-- **효율적 미세조정(PEFT, LoRA)**
+- **양자 컴퓨팅 (Quantum Computing)**
+- **노이즈 완화 (Error Mitigation, QEM)**
+- **머신러닝 기반 오류 보정 (ML-based Error Correction)**
+- **딥러닝 (Autoencoder, Variational Autoencoder, Transformer)**
+- **전이 학습 (Transfer Learning)**
+- **효율적 미세조정 (PEFT, LoRA)**
+- **시뮬레이터–실데이터 브릿징 (Simulator-to-Hardware Bridging)**
 
 ---
 
 ## 2. 문제 정의
 
-- 양자 컴퓨터는 병렬성과 양자 중첩/얽힘 특성을 바탕으로 기존 고전 컴퓨터가 풀기 어려운 문제를 해결할 잠재력을 가지고 있음.
-- 그러나 현재 세대의 양자 컴퓨터(NISQ, Noisy Intermediate-Scale Quantum)는 물리적 한계로 인해 **디코히런스(decoherence), 게이트 오류, 측정 오류(readout noise)** 등이 빈번히 발생.
-- 특히 **readout 단계에서의 노이즈**는 최종 계산 결과를 직접적으로 왜곡시켜, 신뢰성 있는 양자 알고리즘 실행을 어렵게 만듦.
-- 기존 통계적 보정 기법(예: calibration matrix, error mitigation via extrapolation)은 일정 부분 효과가 있지만, **모델링 비용이 크거나 일반화가 제한적**이라는 단점이 존재.
+1. **양자 컴퓨터의 가능성**
+    - 양자 얽힘과 중첩을 활용해 고전적으로 풀기 어려운 문제를 효율적으로 해결할 잠재력이 있음.
+    - 화학적 분자 시뮬레이션, 최적화, 암호 해독 등 다양한 응용 가능성.
+2. **NISQ 시대의 한계**
+    - 현재 양자 하드웨어는 수십~수백 큐빗 규모로 확장됐으나, **노이즈**가 계산의 신뢰성을 크게 저해함.
+    - 대표적 오류:
+        - **decoherence** → 상태 붕괴
+        - **gate error** → 연산 불완전성
+        - **readout noise** → 최종 결과 왜곡
+3. **기존 오류 완화 기법의 한계**
+    - **Calibration matrix**: 노이즈 행렬 추정 → 역행렬 보정, 그러나 큐빗 수 늘면 행렬 크기가 지수적으로 커짐.
+    - **ZNE (Zero-Noise Extrapolation)**: 노이즈 스케일링 후 외삽 → 샘플링 오버헤드 큼.
+    - **PEC (Probabilistic Error Cancellation)**: 원리적으로 정확하나 샘플링 복잡도가 지수적.
+    - 공통적으로 **비용이 크고, 일반화가 어려움**.
 
 ---
 
@@ -183,24 +194,41 @@
 
 ### (1) 연구 접근 방식
 
-- **머신러닝 기법 적용**
-    - **Autoencoder / Variational Autoencoder(VAE)**: 노이즈가 포함된 양자 측정 데이터를 저차원 잠재 공간(latent space)에 압축하고, 이상적인 분포로 복원하여 노이즈를 제거.
-    - **전이 학습(Transfer Learning)**: 서로 다른 양자 하드웨어나 실험 조건에서 수집된 노이즈 데이터를 공유·이전하여, 데이터 수집 비용을 줄이고 일반화 성능 강화.
-    - **PEFT(Parameter-Efficient Fine-Tuning, 예: LoRA)**: 대규모 딥러닝 모델을 효율적으로 미세 조정하여, 제한된 데이터와 연산 자원으로도 빠른 학습·적용 가능.
+1. **시뮬레이터 기반 선학습**
+    - Qiskit의 Fake backends (예: FakeLima, FakeAlgiers, FakeBrisbane)를 활용해 **noisy–ideal 기대값 쌍**을 생성.
+    - 다양한 회로 구조(랜덤 회로, Trotterized 회로 등)와 노이즈 조건(incoherent, readout, coherent)을 반영.
+    - Autoencoder/VAE 모델이 noisy 데이터를 latent space에 압축 후 ideal 데이터로 복원 → **노이즈 제거 representation 학습**.
+2. **실제 하드웨어 데이터로 전이학습**
+    - IBM Quantum 장치(예: ibm_algiers, ibm_brisbane) 또는 오픈 데이터셋에서 실제 노이즈 데이터를 수집.
+    - 시뮬레이터에서 학습한 모델을 전이학습(transfer learning)으로 적은 실제 데이터에 맞게 fine-tuning.
+    - 학습 전략:
+        - **feature extractor 고정 + 출력 계층만 학습** → 빠른 수렴, 적은 데이터로 가능.
+        - **PEFT(LoRA)** 적용 → 거대한 모델 전체가 아니라 작은 low-rank 모듈만 조정, 자원 효율성 극대화.
+3. **모델 효율화 및 평가**
+    - **성능 지표**: KL divergence, TVD(Total Variation Distance), accuracy, 에너지 추정 오차(VQE).
+    - **비교 baseline**: ZNE, calibration matrix.
+    - **학습 효율성**: 필요한 회로 수, 샷 수, 학습 파라미터 수를 기존 기법과 비교.
 
-### (2) 목표
+---
 
-1. **양자 readout 노이즈 완화 성능 향상**
-    - 기존 통계적 보정 기법 대비, PSNR·KL divergence·accuracy 등의 지표에서 개선된 성능을 보이는 머신러닝 기반 오류 보정 모델 제안.
-2. **일반화 가능성 확보**
-    - 다양한 양자 하드웨어 및 실험 환경에 적용 가능한 전이 학습 기반 프레임워크 구축.
-3. **효율적인 학습 전략 제시**
-    - LoRA 등 PEFT 방법론을 통해 제한된 데이터셋과 자원에서도 실질적으로 구현 가능한 모델을 개발.
+### (2) 구체적 연구 목표
+
+1. **노이즈 완화 성능 향상**
+    - 기존 ZNE 대비 더 낮은 오차, 더 적은 오버헤드로 이상적 기대값 근사.
+2. **범용적 적용 가능성**
+    - 서로 다른 하드웨어(백엔드)와 회로 클래스에 일반화 가능한 프레임워크 구축.
+3. **데이터·자원 효율적 접근**
+    - 제한된 실험 데이터와 연산 자원에서도 빠르게 fine-tuning 가능한 경량 모델 제안.
 
 ---
 
 ## 4. 기대 효과
 
-- **실제 양자 시스템 활용 가능성 강화**: NISQ 장비에서도 신뢰도 높은 양자 알고리즘 수행 가능.
-- **데이터 효율적 학습 프레임워크 제공**: 전이 학습과 PEFT 적용을 통해 학습 비용 절감.
-- **양자 컴퓨팅–머신러닝 융합 연구 기여**: 기존 물리 기반 오류 완화 기법을 보완하며, AI 기반 양자 노이즈 제어 가능성을 제시.
+- **실제 양자 시스템 활용 강화**
+    - NISQ 장비에서 신뢰도 높은 양자 알고리즘 실행 가능 → 화학 시뮬레이션, VQE, QAOA 등 응용.
+- **데이터 수집 비용 절감**
+    - 시뮬레이터 선학습 + 전이학습 구조 → 실제 장치에서 대규모 데이터 수집 불필요.
+- **자원 효율성 제고**
+    - LoRA 등 PEFT 적용으로 학습·추론 비용을 크게 절감.
+- **양자–머신러닝 융합 연구 기여**
+    - 물리 기반 QEM을 보완하면서, ML 기반 노이즈 보정의 실용적 가능성을 제시.
