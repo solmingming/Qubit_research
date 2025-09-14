@@ -66,12 +66,22 @@
 - 머신러닝 기반 QEM의 실용 가능성 검증
 
 ### 🖼️ 파이프라인
+```mermaid
 flowchart TD
   A[Noisy quantum circuit data] --> B[Autoencoder / VAE]
   B --> C[Latent representation]
   C --> D[Reconstructed ideal expectation]
-  D --> E[Evaluation: Fidelity, TVD, VQE]
+  D --> E[Evaluation: Fidelity, TVD, VQE] ```
 
-## ⏳ 프로젝트 기간 <b>2025.09 ~ 2026.07</b> ---
+### ⏳ 프로젝트 기간 <b>2025.09 ~ 2026.07</b> ---
 
-## 👩‍💻 Members <table> <thead> <tr> <th>이름</th> <th>역할</th> <th>소속/학번</th> <th>Tech Stack</th> <th>CV</th> </tr> </thead> <tbody> <tr> <td><b>이솔민</b></td> <td>Leader</td> <td>이화여자대학교 컴퓨터공학과 22 / 경영 복수전공</td> <td><code>HTML</code> <code>CSS</code> <code>React</code> <code>Tailwind</code> <code>C</code> <code>JavaScript</code></td> <td> <a href="./docs/solmin Lee_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김은솜</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>Java</code> <code>Python</code> <code>C++</code></td> <td> <a href="./docs/eunsom Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김정민</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>HTML</code> <code>CSS</code> <code>C++</code></td> <td> <a href="./docs/jeongmin Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> </tbody> </table> --- ## 🗺️ Roadmap - [ ] 데이터셋/노이즈 시뮬레이션 초기 버전 구축 - [ ] Autoencoder/Variational Autoencoder 학습 - [ ] Fidelity·Trace distance 비교 실험 - [ ] 결과 시각화 & 보고서 작성 - [ ] 최종 포스터/발표 준비 --- <p align="center"> <sub>© 2025 Team Qubit — All Rights Reserved</sub><br/> <a href="./docs/">📁 Browse docs/</a> </p>
+### 👩‍💻 Members <table> <thead> <tr> <th>이름</th> <th>역할</th> <th>소속/학번</th> <th>Tech Stack</th> <th>CV</th> </tr> </thead> <tbody> <tr> <td><b>이솔민</b></td> <td>Leader</td> <td>이화여자대학교 컴퓨터공학과 22 / 경영 복수전공</td> <td><code>HTML</code> <code>CSS</code> <code>React</code> <code>Tailwind</code> <code>C</code> <code>JavaScript</code></td> <td> <a href="./docs/solmin Lee_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김은솜</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>Java</code> <code>Python</code> <code>C++</code></td> <td> <a href="./docs/eunsom Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김정민</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>HTML</code> <code>CSS</code> <code>C++</code></td> <td> <a href="./docs/jeongmin Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> </tbody> </table> --- 
+
+
+### 🗺️ Roadmap 
+- [ ] 데이터셋/노이즈 시뮬레이션 초기 버전 구축 
+- [ ] Autoencoder/Variational Autoencoder 학습 
+- [ ] Fidelity·Trace distance 비교 실험 
+- [ ] 결과 시각화 & 보고서 작성 
+- [ ] 최종 포스터/발표 준비 
+--- <p align="center"> <sub>© 2025 Team Qubit — All Rights Reserved</sub><br/> <a href="./docs/">📁 Browse docs/</a> </p>
