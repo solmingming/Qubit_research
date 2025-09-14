@@ -21,10 +21,6 @@
 
   </p>
 
-  <!-- 티저 이미지 (나중에 결과 나오면 추가) -->
-  <img src="./docs/teaser.png" alt="Project Teaser" width="720"/>
-</div>
-
 ---
 
 ## 📌 프로젝트 소개
