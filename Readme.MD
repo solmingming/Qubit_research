@@ -14,10 +14,9 @@
 
   <!-- 네비게이션 -->
   <p>
-    <a href="#-프로젝트-소개">소개</a> ·
-    <a href="#-project-overview-english">English</a> ·
-    <a href="#-실험-설계--아키텍처">아키텍처</a> ·
-    <a href="#-members">Members</a> ·
+    <a href="#-프로젝트-소개">소개</a> 
+    <a href="#-project-overview-english">English</a>
+    <a href="#-members">Members</a> 
 
   </p>
 
@@ -31,9 +30,9 @@
 <b>실험적 탐구</b>와 <b>성장</b>을 최우선으로 하는 프로젝트를 만들어 갑니다.
 
 **주요 연구 내용**
-- ⚡ Qiskit으로 노이즈 포함 양자 회로 데이터 생성  
-- 🧩 Autoencoder / VAE 모델로 상태 복원  
-- 📊 Fidelity, Trace distance 지표로 성능 평가  
+ ⚡ Qiskit으로 노이즈 포함 양자 회로 데이터 생성  
+ 🧩 Autoencoder / VAE 모델로 상태 복원  
+ 📊 Fidelity, Trace distance 지표로 성능 평가  
 
 > **목표:** 학부 수준에서 **딥러닝 기반 노이즈 완화**의 실험적 가능성 검증
 
@@ -47,9 +46,9 @@ We aim to integrate <b>versatile skills</b> of our members
 to pursue meaningful outcomes through <b>evidence-driven research</b>.
 
 **Focus**
-- ⚡ Generate noisy quantum circuit data via Qiskit  
-- 🧩 Restore original states using Autoencoder / VAE  
-- 📊 Evaluate using fidelity & trace distance  
+ ⚡ Generate noisy quantum circuit data via Qiskit  
+🧩 Restore original states using Autoencoder / VAE  
+ 📊 Evaluate using fidelity & trace distance  
 
 ---
 
@@ -58,23 +57,6 @@ to pursue meaningful outcomes through <b>evidence-driven research</b>.
 
 ---
 
-## 🧪 실험 설계 & 아키텍처 (Draft)
-<details>
-<summary><b>파이프라인 개요</b></summary>
-
-Ideal Circuits ─> Noise Injection ─> Noisy Data
-│
-┌────────────┴────────────┐
-│ │
-Train Split Test Split
-│ │
-Model Training Model Evaluation
-
-</details>
-
-> 이후 모델 구조 다이어그램, 결과 그래프 등을 `docs/`에 추가 후 여기 표시 예정
-
----
 
 ## 👩‍💻 Members
 <table>
