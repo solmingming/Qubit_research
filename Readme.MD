@@ -66,12 +66,11 @@
 - 머신러닝 기반 QEM의 실용 가능성 검증
 
 ### 🖼️ 파이프라인
-```mermaid
-graph TD
-  A[Noisy Quantum Circuit Data] --> B[Autoencoder / VAE]
-  B --> C[Latent Representation]
-  C --> D[Reconstructed Ideal Expectation]
-  D --> E[Evaluation (Fidelity, TVD, VQE Error)]
+flowchart TD
+  A[Noisy quantum circuit data] --> B[Autoencoder / VAE]
+  B --> C[Latent representation]
+  C --> D[Reconstructed ideal expectation]
+  D --> E[Evaluation: Fidelity, TVD, VQE]
 
 ## ⏳ 프로젝트 기간 <b>2025.09 ~ 2026.07</b> ---
 
