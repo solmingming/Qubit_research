@@ -12,5 +12,5 @@
 | **Pain Point** | 1. **측정 노이즈로 인한 신뢰도 저하** – 이온트랩 양자 컴퓨터는 측정 노이즈로 인해 연산 결과의 신뢰도가 크게 저하되어, NISQ 활용의 가장 큰 병목 현상이 되고 있음.<br>2. **기존 QREM 기법의 비효율성** – 대량의 캘리브레이션 데이터와 복잡한 보정 절차가 필요하며, 큐비트 수 증가 시 보정 행렬 크기가 기하급수적으로 커져 확장성이 떨어짐. |
 | **사용할 소프트웨어 패키지/명칭과 용도** | - **Qiskit**: Ion trap backend 시뮬레이션, measurement calibration, 회로 실행<br>- **PyTorch**: Autoencoder/MLP 모델 설계 및 학습<br>- **NumPy / Pandas**: 데이터 전처리 및 확률분포 계산<br>- **Matplotlib / Seaborn**: 결과 시각화 |
 | **사용할 소프트웨어 패키지의 명칭과 URL** | - [Qiskit](https://qiskit.org/)<br>- [PyTorch](https://pytorch.org/)<br>- [NumPy](https://numpy.org/) / [Pandas](https://pandas.pydata.org/)<br>- [Matplotlib](https://matplotlib.org/) / [Seaborn](https://seaborn.pydata.org/) |
-| **팀그라운드룰** | [Github Qubit_research/GroundRule.MD](https://github.com/abae11849a1e53d3862335396e7...) |
+| **팀그라운드룰** | https://github.com/solmingming/Qubit_research/blob/abae11849a1e5a1d3836233593e7ab646292498f/GroundRule.MD) |
 | **최종수정일** | 2025.09.16. |
