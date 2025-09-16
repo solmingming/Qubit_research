@@ -11,5 +11,5 @@
 |Pain Point||
 |사용할 소프트웨어 패키지의 명칭과 핵심기능/용도, 사용시나리오||
 |사용할 소프트웨어 패키지의 명칭과 URL||
-|팀그라운드룰||https://github.com/solmingming/Qubit_research/blob/777d7944722527e6bc944b0b7188ee2667e58783/GroundRule.MD|
+|팀그라운드룰|https://github.com/solmingming/Qubit_research/blob/777d7944722527e6bc944b0b7188ee2667e58783/GroundRule.MD|
 |최종수정일||2025.09.16.13:00
