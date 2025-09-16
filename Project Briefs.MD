@@ -1,24 +1,16 @@
 ## Team 1 Qubit
-|항목|내용|
+
+| **항목** | **내용** |
 |---|---|
-|프로젝트명|이온트랩 양자 컴퓨터에서 발생하는 측정 단계 노이즈를 효과적으로 완화하기 위한 전이학습/머신러닝 기반 솔루션 연구|
-|프로젝트 키워드|
-- 이온 트랩 양자 컴퓨팅(Ion Trap Quantum Computing)
-- 양자컴퓨터 노이즈 완화(QEM)
-- 측정 노이즈 완화(Measurement Noise Mitigation)
-- 머신러닝 기반 오류 보정(ML-based Error Correction)
-- 딥러닝(DNN, Autoencoder, VAE)
-- 전이 학습(Transfer Learning)
-- 효율적 미세조정(PEFT, LoRA)
-- 데이터 효율성 (Data Efficiency)
-|
-|트랙|연구|
-|프로젝트멤버| 김은솜, 김정민,이솔민
-|팀지도교수|이형준 교수님|
-|무엇을 만들고자 하는가||
-|고객||
-|Pain Point||
-|사용할 소프트웨어 패키지의 명칭과 핵심기능/용도, 사용시나리오||
-|사용할 소프트웨어 패키지의 명칭과 URL||
-|팀그라운드룰|https://github.com/solmingming/Qubit_research/blob/777d7944722527e6bc944b0b7188ee2667e58783/GroundRule.MD|
-|최종수정일||2025.09.16.13:00
+| **프로젝트명** | 이온트랩 양자 컴퓨터에서 발생하는 측정 단계 노이즈를 효과적으로 완화하기 위한 전이학습/머신러닝 기반 솔루션 연구 |
+| **프로젝트 키워드** | - 이온 트랩 양자 컴퓨팅 (Ion Trap Quantum Computing)<br>- 양자컴퓨팅 노이즈 완화(QEM)<br>- 측정 노이즈 완화 (Measurement Noise Mitigation)<br>- 머신러닝 기반 오류 보정 (ML-based Error Correction)<br>- 딥러닝 (DNN, Autoencoder, VAE)<br>- 전이 학습 (Transfer Learning)<br>- 효율적 미세조정 (PEFT, LoRA)<br>- 데이터 효율성 (Data Efficiency) |
+| **트랙** | 연구 |
+| **프로젝트 멤버** | 이솔민, 김은솜, 김정민 |
+| **팀지도교수** | 이형준 교수님 |
+| **무엇을 만들고자 하는가** | 양자 컴퓨팅의 상용화를 저해하는 측정 노이즈 문제를 해결하고자, 전이학습과 머신러닝을 활용하여 이온트랩 양자 컴퓨터의 측정 노이즈를 완화하는 솔루션을 제안 및 연구합니다. |
+| **고객** | - 양자컴퓨팅 연구자<br>- 양자-머신러닝 교차 분야 연구자<br>- NISQ 시대 속에서 양자 알고리즘을 연구하는 학부/대학원 연구실 |
+| **Pain Point** | 1. **측정 노이즈로 인한 신뢰도 저하** – 이온트랩 양자 컴퓨터는 측정 노이즈로 인해 연산 결과의 신뢰도가 크게 저하되어, NISQ 활용의 가장 큰 병목 현상이 되고 있음.<br>2. **기존 QREM 기법의 비효율성** – 대량의 캘리브레이션 데이터와 복잡한 보정 절차가 필요하며, 큐비트 수 증가 시 보정 행렬 크기가 기하급수적으로 커져 확장성이 떨어짐. |
+| **사용할 소프트웨어 패키지/명칭과 용도** | - **Qiskit**: Ion trap backend 시뮬레이션, measurement calibration, 회로 실행<br>- **PyTorch**: Autoencoder/MLP 모델 설계 및 학습<br>- **NumPy / Pandas**: 데이터 전처리 및 확률분포 계산<br>- **Matplotlib / Seaborn**: 결과 시각화 |
+| **사용할 소프트웨어 패키지의 명칭과 URL** | - [Qiskit](https://qiskit.org/)<br>- [PyTorch](https://pytorch.org/)<br>- [NumPy](https://numpy.org/) / [Pandas](https://pandas.pydata.org/)<br>- [Matplotlib](https://matplotlib.org/) / [Seaborn](https://seaborn.pydata.org/) |
+| **팀그라운드룰** | [Github Qubit_research/GroundRule.MD](https://github.com/abae11849a1e53d3862335396e7...) |
+| **최종수정일** | 2025.09.16. |
