@@ -13,4 +13,4 @@
 | **사용할 소프트웨어 패키지/명칭과 용도** | - **Qiskit**: Ion trap backend 시뮬레이션, measurement calibration, 회로 실행<br>- **PyTorch**: Autoencoder/MLP 모델 설계 및 학습<br>- **NumPy / Pandas**: 데이터 전처리 및 확률분포 계산<br>- **Matplotlib / Seaborn**: 결과 시각화 |
 | **사용할 소프트웨어 패키지의 명칭과 URL** | - [Qiskit](https://qiskit.org/)<br>- [PyTorch](https://pytorch.org/)<br>- [NumPy](https://numpy.org/) / [Pandas](https://pandas.pydata.org/)<br>- [Matplotlib](https://matplotlib.org/) / [Seaborn](https://seaborn.pydata.org/) |
 | **팀그라운드룰** | https://github.com/solmingming/Qubit_research/blob/abae11849a1e5a1d3836233593e7ab646292498f/GroundRule.MD) |
-| **최종수정일** | 2025.09.16. |
+| **최종수정일** | 2025.09.16.13:46 |
