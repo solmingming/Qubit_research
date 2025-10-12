@@ -13,4 +13,4 @@
 | **사용할 소프트웨어 패키지/명칭과 용도** | - **Qiskit**: 양자 연산 회로 설계 및 시뮬레이션 <br>- **NumPy / Pandas**: 데이터 전처리 및 확률분포 계산<br>- **PyTorch / TensorFlow**: Autoencoder/MLP 등 딥러닝 모델 구축 및 학습 프레임워크<br>- **Hugging Face PEFT Library**: LoRA 등, 효율적 전이 학습 라이브러리	<br>- **scikit-learn**: 머신러닝 라이브러리 - 데이터 전처리<br>- **Matplotlib / Seaborn**: 데이터 시각화 라이브러리 <br>- **Jupyter Notebook**: 대화형 개발 환경<br> |
 | **사용할 소프트웨어 패키지의 명칭과 URL** | - [Qiskit](https://qiskit.org/)<br>- [NumPy](https://numpy.org/) / [Pandas](https://pandas.pydata.org/)<br>- [PyTorch](https://pytorch.org/) / [TensorFlow](https://www.tensorflow.org/) <br>- [Hugging Face PEFT Library](https://huggingface.co/docs/peft/index)<br>- [scikit-learn](https://scikit-learn.org/)<br>- [Matplotlib](https://matplotlib.org/) / [Seaborn](https://seaborn.pydata.org/) <br>- [Jupyter Notebook](https://jupyter.org/)<br>|
 | **팀그라운드룰** | https://github.com/solmingming/Qubit_research/blob/abae11849a1e5a1d3836233593e7ab646292498f/GroundRule.MD) |
-| **최종수정일** | 2025.09.16.13:46 |
+| **최종수정일** | 2025.10.12.19:17 |
