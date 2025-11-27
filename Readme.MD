@@ -2,7 +2,7 @@
 <div align="center">
 
   <h1>양자 컴퓨터의 연산 과정에서 발생하는 노이즈 완화를 위한 머신러닝 솔루션</h1>
-  <p><em>Quantum Noise Mitigation with Deep Learning</em></p>
+  <p><em>QEM Machine Learning Solution</em></p>
 
   <!-- 핵심 배지 -->
   <p>
