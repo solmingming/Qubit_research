@@ -35,7 +35,7 @@
 
 ## 🧠 연구 주제
 ### 🎯 주제
-**딥러닝을 이용한 양자 오류 완화 (Quantum Error Mitigation)**  
+**양자 컴퓨터의 연산 과정에서 발생하는 노이즈 완화를 위한 머신러닝 솔루션 (Quantum Error Mitigation)**  
 시뮬레이터에서 noisy–ideal 데이터를 학습하고,  
 실제 장비 데이터로 전이 학습(fine-tuning)해  
 노이즈를 보정하는 모델을 만들고 검증합니다.
