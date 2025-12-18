@@ -1,7 +1,7 @@
 <!-- HEADER -->
 <div align="center">
 
-  <h1>양자 측정 오류 완화를 위한 회귀 기반 머신러닝 접근</h1>
+  <h1>양자 측정 오류 완화를 위한 회귀 기반 머신러닝 솔루션</h1>
   <p><em>Regression-based Machine Learning for Quantum Error Mitigation</em></p>
 
   <!-- 핵심 배지 -->
