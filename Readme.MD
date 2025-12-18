@@ -266,9 +266,10 @@ flowchart LR
 ### ⏳ 프로젝트 기간 <b>2025.09 ~ 2026.07</b>
 
 ### 🗺️ 프로젝트 진행현황
+<em>Figure 1. Qubit research roadmap</em>
 <p align="center">
   <img src="https://raw.githubusercontent.com/solmingming/Qubit_research/main/docs/roadmap.png" width="350" alt="Qubit Research Roadmap">
-<em>Figure 1. Qubit research roadmap</em>
+
 </p>
 
 
