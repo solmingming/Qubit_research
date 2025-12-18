@@ -64,12 +64,22 @@
 - 머신러닝 기반 QEM의 실용 가능성 검증
 
 ### 🖼️ 파이프라인
+
 ```mermaid
-flowchart TD
-  A[Noisy quantum circuit data] --> B[Autoencoder / VAE]
-  B --> C[Latent representation]
-  C --> D[Reconstructed ideal expectation]
-  D --> E[Evaluation: Fidelity, TVD, VQE] 
+flowchart LR
+    A[랜덤 2-qubit 회로 생성] --> B[Noiseless 시뮬레이션<br/>Statevector]
+    B --> C[이상적 ⟨Z ⊗ Z⟩<br/>Ground Truth]
+
+    A --> D[측정 연산 추가]
+    D --> E[노이즈 모델 샘플링]
+    E --> F[Qiskit Aer<br/>Noisy Simulation]
+    F --> G[Measurement Counts]
+
+    G --> H[Feature Engineering]
+    C --> I[Supervised Learning]
+    H --> I
+    I --> J[회귀 기반 ML-QEM]
+    J --> K[Mitigated ⟨Z ⊗ Z⟩]
 ```
 
 ### ⏳ 프로젝트 기간 <b>2025.09 ~ 2026.07</b>
