@@ -76,7 +76,7 @@
 
 본 연구에서는 실제 양자 하드웨어 실험이 어려운 환경에서도  
 다양한 노이즈 조건을 체계적으로 반영하기 위해  
-**Qiskit Aer 기반 시뮬레이터 파이프라인**을 구축**Qiskit Aer 기반 시뮬레이터 파이프라인**을 구축하였다.
+**Qiskit Aer 기반 시뮬레이터 파이프라인**을 **Qiskit Aer 기반 시뮬레이터 파이프라인**을 구축하였다.
 
 
 ```mermaid
@@ -262,12 +262,14 @@ flowchart LR
 
 ---
 
-## 📚 참고 논문
-
-> **Adaptive Neural Network for Quantum Error Mitigation**
-
 
 ### ⏳ 프로젝트 기간 <b>2025.09 ~ 2026.07</b>
+
+### 🗺️ 프로젝트 진행현황
+<p align="center">
+  <img src="https://raw.githubusercontent.com/solmingming/Qubit_research/main/docs/로드맵.png" width="700">
+</p>
+
 
 ### 👩‍💻 Members
 
@@ -275,10 +277,5 @@ flowchart LR
 <table style="font-size:50%"; > <thead> <tr> <th>이름</th> <th>역할</th> <th>소속/학번</th> <th>Tech Stack</th> <th>CV</th> </tr> </thead> <tbody> <tr> <td><b>이솔민</b></td> <td>Leader</td> <td>이화여자대학교 컴퓨터공학과 22 / 경영 복수전공</td> <td><code>HTML</code> <code>CSS</code> <code>React</code> <code>Tailwind</code> <code>C</code> <code>JavaScript</code></td> <td> <a href="./docs/solmin Lee_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김은솜</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>Java</code> <code>Python</code> <code>C++</code></td> <td> <a href="./docs/eunsom Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> <tr> <td><b>김정민</b></td> <td>Member</td> <td>이화여자대학교 컴퓨터공학과 22</td> <td><code>HTML</code> <code>CSS</code> <code>C++</code></td> <td> <a href="./docs/jeongmin Kim_cv.pdf" target="_blank"> <img alt="Download CV" src="https://img.shields.io/badge/CV-Download-blue"> </a> </td> </tr> </tbody> </table>
 
 
-### 🗺️ 프로젝트 진행현황
-- [0] 데이터셋/노이즈 시뮬레이션 초기 버전 구축 
-- [ ] Autoencoder/Variational Autoencoder 학습 
-- [ ] Fidelity·Trace distance 비교 실험 
-- [ ] 결과 시각화 & 보고서 작성 
-- [ ] 최종 포스터/발표 준비 
+
 --- <p align="center"> <sub>© 2025 Team Qubit — All Rights Reserved</sub><br/> <a href="./docs/">📁 Browse docs/</a> </p>
