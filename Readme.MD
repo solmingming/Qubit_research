@@ -267,8 +267,10 @@ flowchart LR
 
 ### 🗺️ 프로젝트 진행현황
 <p align="center">
-  <img src="https://raw.githubusercontent.com/solmingming/Qubit_research/main/docs/로드맵.png" width="700">
+  <img src="https://raw.githubusercontent.com/solmingming/Qubit_research/main/docs/roadmap.png" width="700" alt="Qubit Research Roadmap">
+<em>Figure 1. Qubit research roadmap</em>
 </p>
+
 
 
 ### 👩‍💻 Members
