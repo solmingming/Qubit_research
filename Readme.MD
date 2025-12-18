@@ -29,8 +29,8 @@
 팀명 **Qubit**은 양자컴퓨팅의 최소 단위이자,  
 여러 가능성을 동시에 품는 **중첩(Superposition)** 개념에서 영감을 받았습니다.
 
-본 프로젝트는 **양자 오류 완화(Quantum Error Mitigation, QEM)**를 위해  
-머신러닝 기반의 **데이터 중심(data-driven) 접근법**을 실험적으로 검증하는 것을 목표로 합니다.
+본 프로젝트는 양자 오류 완화(Quantum Error Mitigation, QEM)를 위해  
+머신러닝 기반의 데이터 중심(data-driven) 접근법을 실험적으로 검증하는 것을 목표로 합니다.
 
 특히 본 연구에서는  
 **보정 행렬(calibration)이나 명시적 오류 모델링 없이**,  
