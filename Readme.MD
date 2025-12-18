@@ -12,13 +12,6 @@
     <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
   </p>
 
-  <!-- 네비게이션 -->
-  <p>
-    <a href="#프로젝트-소개">소개</a> •
-    <a href="#연구-주제">연구 주제</a> •
-    <a href="#데이터-생성-파이프라인">데이터 파이프라인</a> •
-    <a href="#머신러닝-기반-qem-접근">ML-QEM 방법</a>
-  </p>
 
 </div>
 
