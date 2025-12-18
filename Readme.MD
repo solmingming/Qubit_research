@@ -114,15 +114,13 @@ flowchart LR
 
 ### (2) Noiseless Ground Truth 생성
 
-각 랜덤 회로에 대해, **측정 연산을 제거한 이상적인 양자 회로**를  
+각 랜덤 회로에 대해, 측정 연산을 제거한 이상적인 양자 회로를  
 statevector 시뮬레이션으로 실행하여 노이즈가 없는 최종 양자 상태를 계산한다.
 
 이 상태를 기반으로 다음 관측량의 기대값을 계산한다.
 
 - **관측량**:  
-  \[
-  \langle Z \otimes Z \rangle
-  \]
+    <Z ⊗ Z>의 기대값
 
 해당 값은 통계적 샘플링 오차나 환경적 노이즈의 영향을 받지 않는  
 **이상적인 기준값(noiseless ground truth)**으로 정의되며,  
@@ -167,10 +165,10 @@ statevector 시뮬레이션으로 실행하여 노이즈가 없는 최종 양자
 ```mermaid
 flowchart LR
     A[Measurement Counts]
-    --> B[P(00), P(01), P(10), P(11)]
+    --> B[Probabilities: 00, 01, 10, 11]
     --> C[Mean / Variance]
 
-    D[회로 구조(QPY)]
+    D[Circuit Structure QPY]
     --> E[Gate Count]
     --> F[Depth]
 
