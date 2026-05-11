@@ -36,35 +36,142 @@
 
 ---
 
-## 📌 프로젝트 소개
+## 📌 Project Introduction
 
-팀명 **Qubit**은 양자컴퓨팅의 최소 단위이자,  
-여러 가능성을 동시에 품는 **중첩(Superposition)** 개념에서 영감을 받았다.
+<div align="center">
 
-본 프로젝트는 양자 오류 완화(Quantum Error Mitigation, QEM)를 위해  
-머신러닝 기반의 데이터 중심(data-driven) 접근법을 실험적으로 검증하는 것을 목표로 한다.
+<h3>
+  From High-Dimensional Deepfake Features<br/>
+  to Graph-Aware Quantum Feature Selection
+</h3>
 
-특히 본 연구에서는  
-**보정 행렬(calibration)이나 명시적 오류 모델링 없이**,  
-노이즈가 포함된 측정 결과로부터 **이상적인 관측값을 직접 회귀(regression)로 복원**하는 방법을 구현한다.
+<p>
+  <em>
+    딥페이크 이미지의 고차원 특징을 그래프로 이해하고,<br/>
+    양자 최적화를 통해 핵심 feature subset을 선택하는 연구
+  </em>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Deepfake%20Realism-Increasing-111111?style=for-the-badge" alt="Deepfake Realism"/>
+  <img src="https://img.shields.io/badge/Feature%20Selection-Combinatorial%20Optimization-2C5BB4?style=for-the-badge" alt="Feature Selection"/>
+  <img src="https://img.shields.io/badge/M--FIG%20Block--QAOA-Graph--Aware%20Quantum%20Optimization-6B4C9A?style=for-the-badge" alt="M-FIG Block-QAOA"/>
+</p>
+
+</div>
+
+---
+
+### 🧭 Motivation Flow
+
+<table>
+<tr>
+<td width="8%" align="center"><b>01</b></td>
+<td width="28%"><b>Increasing Deepfake Realism</b></td>
+<td>
+최근 생성형 AI의 발전으로 딥페이크 이미지는 점점 더 정교해지고 있으며, 
+육안으로 진위 여부를 구분하기 어려워지고 있다.
+</td>
+</tr>
+
+<tr>
+<td align="center"><b>02</b></td>
+<td><b>Need for Subtle Feature Analysis</b></td>
+<td>
+딥페이크 탐지는 단순한 시각적 차이가 아니라, 피부 질감의 비자연성, 얼굴 영역 간 불일치, 
+주파수 왜곡, 생성 모델 특유의 artifact와 같은 미세한 위조 단서를 포착해야 한다.
+</td>
+</tr>
+
+<tr>
+<td align="center"><b>03</b></td>
+<td><b>Limitation of Existing Detectors</b></td>
+<td>
+CNN 또는 ViT 기반 탐지 모델은 고차원 feature representation에 의존하는 경우가 많으며, 
+이는 연산 비용, 저장 비용, feature 중복성 증가로 이어질 수 있다.
+</td>
+</tr>
+
+<tr>
+<td align="center"><b>04</b></td>
+<td><b>Need for Efficient Feature Selection</b></td>
+<td>
+탐지 성능에 중요한 feature subset을 선택하면, 성능을 유지하면서도 
+모델의 효율성과 해석 가능성을 높일 수 있다.
+</td>
+</tr>
+
+<tr>
+<td align="center"><b>05</b></td>
+<td><b>Optimization Challenge</b></td>
+<td>
+Feature selection은 각 feature를 선택할지 말지를 결정하는 조합 최적화 문제이며, 
+feature 수가 증가할수록 탐색 공간이 기하급수적으로 커진다.
+</td>
+</tr>
+
+<tr>
+<td align="center"><b>06</b></td>
+<td><b>QAOA with NISQ Limitation</b></td>
+<td>
+QAOA는 조합 최적화 문제에 유망한 접근법이지만, 현재의 NISQ 환경에서는 
+512차원 feature 전체를 한 번에 최적화하기 어렵다.
+</td>
+</tr>
+</table>
 
 ---
 
-## 🧠 연구 주제
+### 💡 Our Motivation
 
-### 🎯 주제
-**양자 측정 과정에서 발생하는 노이즈 완화를 위한 회귀 기반 머신러닝(QEM)**
+<div align="center">
 
-시뮬레이터 환경에서 생성한  
-- noiseless(이론적 정답) 데이터와  
-- noisy(노이즈 포함 측정) 데이터 쌍을 활용하여,  
+<h3>
+  We propose an M-FIG based Graph-Clustering Block-QAOA framework<br/>
+  for structure-aware and efficient deepfake feature selection.
+</h3>
 
-회귀 모델이 **측정 오류를 직접 보정하도록 학습**한다.
+</div>
 
-본 연구는 *Adaptive Neural Network for Quantum Error Mitigation* 논문의 아이디어를 참고하여  
-**측정 통계 + 회로 구조 정보를 함께 사용하는 회귀 기반 QEM 파이프라인**을 구현한다.
+본 연구는 딥페이크 이미지에서 추출된 512차원 feature를 단순한 숫자 배열로 보지 않고,  
+feature 간 관계를 가진 **상호작용 그래프**로 해석한다.
+
+이를 위해 각 feature dimension을 node로 정의하고,  
+feature 간 상관관계와 의존성을 edge weight로 표현하는  
+**M-FIG(Multi-Feature Interaction Graph)**를 구성한다.
+
+이후 M-FIG를 기반으로 관련 있는 feature들을 block 단위로 clustering하고,  
+각 block 내부에서 **QUBO 정식화**와 **Block-QAOA 최적화**를 수행하여  
+딥페이크 탐지에 중요한 feature subset을 선택한다.
 
 ---
+
+### ✨ Core Idea
+
+| Problem | Insight | Our Solution |
+|---|---|---|
+| 딥페이크가 점점 정교해짐 | 미세한 feature 분석이 필요함 | 고차원 face embedding 활용 |
+| 고차원 feature는 비용과 중복성이 큼 | 모든 feature가 동일하게 중요하지 않음 | Feature selection 수행 |
+| Feature selection은 조합 최적화 문제임 | QAOA는 조합 최적화에 적합함 | QUBO 기반 QAOA 적용 |
+| 512차원을 직접 QAOA에 넣기 어려움 | NISQ 환경에서는 문제 분할이 필요함 | Block-QAOA 구조 사용 |
+| 단순 순차 분할은 관계를 잃을 수 있음 | 관련 feature는 함께 최적화되어야 함 | M-FIG 기반 graph clustering |
+
+---
+
+### 🔬 Research Pipeline
+
+```mermaid
+flowchart LR
+
+A[Deepfake Image] --> B[512-D Feature Extraction]
+B --> C[M-FIG Construction]
+C --> D[Graph-based Clustering]
+D --> E[Feature Blocks]
+E --> F[QUBO Formulation]
+F --> G[Block-QAOA Optimization]
+G --> H[Selected Feature Subset]
+H --> I[Deepfake Detection]
+
 
 ### 🧐 문제 정의
 
