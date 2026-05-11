@@ -34,18 +34,6 @@
 
 </div>
 
-
-  <p>
-    <img src="https://img.shields.io/badge/Qiskit-6B4C9A?style=flat-square&logo=qiskit&logoColor=white" alt="Qiskit"/>
-    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch"/>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
-    <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
-    <img src="https://img.shields.io/badge/NetworkX-2C5BB4?style=flat-square" alt="NetworkX"/>
-    <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" alt="Jupyter"/>
-  </p>
-
-</div>
-
 ---
 
 ## 📌 프로젝트 소개
