@@ -171,7 +171,7 @@ E --> F[QUBO Formulation]
 F --> G[Block-QAOA Optimization]
 G --> H[Selected Feature Subset]
 H --> I[Deepfake Detection]
-
+'''
 
 ### 🧐 문제 정의
 
