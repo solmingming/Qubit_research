@@ -1,16 +1,21 @@
 <!-- HEADER -->
 <div align="center">
 
-  <h1>양자 측정 오류 완화를 위한 회귀 기반 머신러닝 솔루션</h1>
-  <p><em>Regression-based Machine Learning for Quantum Error Mitigation</em></p>
+  <h1>딥페이크 이미지의 Feature Selection을 위한 그래프 기반 클러스터링 블록-QAOA /h1>
+  <p><em>Graph-Clustered Block-QAOA for Deepfake Feature Selection </em></p>
 
-  <!-- 핵심 배지 -->
-  <p>
-    <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit"/>
-    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
-    <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"/>
-    <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
-  </p>
+<!-- 핵심 배지 -->
+<p>
+  <img src="https://img.shields.io/badge/QAOA-Quantum%20Optimization-6B4C9A" alt="QAOA"/>
+  <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit"/>
+  <img src="https://img.shields.io/badge/Feature%20Selection-Deepfake%20Detection-2C5BB4" alt="Feature Selection"/>
+  <img src="https://img.shields.io/badge/Graph%20Clustering-M--FIG-008080" alt="Graph Clustering"/>
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
+  <img src="https://img.shields.io/badge/NetworkX-2C5BB4" alt="NetworkX"/>
+  <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
+</p>
 
 
 </div>
