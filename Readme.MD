@@ -133,7 +133,7 @@ QAOA는 조합 최적화 문제에 유망한 접근법이지만, 현재의 NISQ 
 </h3>
 <br/>
 <p align="center">
-  <img src="./docs/description.png" width="40%" alt="M-FIG Block-QAOA Research Pipeline"/>
+  <img src="./docs/description.png" width="80%" alt="M-FIG Block-QAOA Research Pipeline"/>
 </p>
 
 </div>
