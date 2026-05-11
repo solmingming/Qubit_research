@@ -1,21 +1,29 @@
 <!-- HEADER -->
 <div align="center">
 
-  <h1>딥페이크 이미지의 Feature Selection을 위한 그래프 기반 클러스터링 블록-QAOA </h1>
-  <em>Graph-Clustered Block-QAOA for Deepfake Feature Selection </em>
+  <h1>
+    딥페이크 이미지 Feature Selection을 위한<br/>
+    그래프 기반 클러스터링 Block-QAOA
+  </h1>
 
-<p>
-  <img src="https://img.shields.io/badge/QAOA-Quantum%20Optimization-6B4C9A" alt="QAOA"/>
-  <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit"/>
-  <img src="https://img.shields.io/badge/Feature%20Selection-Deepfake%20Detection-2C5BB4" alt="Feature Selection"/>
-  <img src="https://img.shields.io/badge/Graph%20Clustering-M--FIG-008080" alt="Graph Clustering"/>
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
-  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
-  <img src="https://img.shields.io/badge/NetworkX-2C5BB4" alt="NetworkX"/>
-  <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
-</p>
+  <p>
+    <em>Graph-Clustered Block-QAOA for Deepfake Feature Selection</em>
+  </p>
 
+  <p>
+    <img src="https://img.shields.io/badge/Research-Deepfake%20Detection-111111?style=for-the-badge" alt="Deepfake Detection"/>
+    <img src="https://img.shields.io/badge/Task-Feature%20Selection-2C5BB4?style=for-the-badge" alt="Feature Selection"/>
+    <img src="https://img.shields.io/badge/Method-M--FIG%20Block--QAOA-6B4C9A?style=for-the-badge" alt="M-FIG Block-QAOA"/>
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Qiskit-6B4C9A?style=flat-square&logo=qiskit&logoColor=white" alt="Qiskit"/>
+    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch"/>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+    <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
+    <img src="https://img.shields.io/badge/NetworkX-2C5BB4?style=flat-square" alt="NetworkX"/>
+    <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" alt="Jupyter"/>
+  </p>
 
 </div>
 
