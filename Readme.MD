@@ -158,20 +158,21 @@ feature 간 상관관계와 의존성을 edge weight로 표현하는
 
 ---
 
-### 🔬 Research Pipeline
+## 🔬 Research Pipeline
 
-```mermaid
-flowchart LR
+<p align="center">
+  <img src="./docs/pipeline.png" width="95%" alt="M-FIG Block-QAOA Research Pipeline"/>
+</p>
 
-A[Deepfake Image] --> B[512-D Feature Extraction]
-B --> C[M-FIG Construction]
-C --> D[Graph-based Clustering]
-D --> E[Feature Blocks]
-E --> F[QUBO Formulation]
-F --> G[Block-QAOA Optimization]
-G --> H[Selected Feature Subset]
-H --> I[Deepfake Detection]
-```
+<p align="center">
+  <em>
+    Figure 1. M-FIG based Graph-Clustering Block-QAOA pipeline for deepfake feature selection.
+  </em>
+</p>
+
+The proposed framework consists of three stages:  
+classical feature extraction, M-FIG based graph construction, and hybrid quantum-classical feature selection.
+
 
 ### 🧐 문제 정의
 
