@@ -48,17 +48,15 @@
   <em>
     딥페이크 이미지의 고차원 특징을 그래프 구조로 해석하고,<br/>
     Block-QAOA를 통해 핵심 feature subset을 선택하는 연구
+<br/>
+<br/>
+<br/>
   </em>
 </p>
 
 </div>
 
-본 프로젝트는 딥페이크 이미지 탐지에서 사용되는 고차원 feature representation의 비효율성을 줄이기 위해,  
-그래프 기반 feature clustering과 양자 근사 최적화 알고리즘인 QAOA(Quantum Approximate Optimization Algorithm)를 결합한  
-feature selection pipeline을 제안한다.
-
-특히 본 연구는 512차원 feature를 단순한 벡터가 아니라 feature 간 관계를 가진 M-FIG(Multi-Feature Interaction Graph)로 모델링하고,  
-이를 기반으로 관련 feature들을 block 단위로 구성한 뒤 각 block 내부에서 QUBO 기반 Block-QAOA 최적화를 수행한다.
+본 프로젝트는 딥페이크 이미지 탐지에서 사용되는 고차원 feature representation의 비효율성을 줄이기 위해,그래프 기반 feature clustering과 양자 근사 최적화 알고리즘인 QAOA(Quantum Approximate Optimization Algorithm)를 결합한 feature selection pipeline을 제안한다. 특히 본 연구는 512차원 feature를 단순한 벡터가 아니라 feature 간 관계를 가진 M-FIG(Multi-Feature Interaction Graph)로 모델링하고,이를 기반으로 관련 feature들을 block 단위로 구성한 뒤 각 block 내부에서 QUBO 기반 Block-QAOA 최적화를 수행한다.
 
 ---
 
