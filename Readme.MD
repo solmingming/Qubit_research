@@ -37,7 +37,6 @@
 ---
 
 ## 📌 Project Introduction
-
 <div align="center">
 
 <h3>
@@ -47,18 +46,23 @@
 
 <p>
   <em>
-    딥페이크 이미지의 고차원 특징을 그래프로 이해하고,<br/>
-    양자 최적화를 통해 핵심 feature subset을 선택하는 연구
+    딥페이크 이미지의 고차원 특징을 그래프 구조로 해석하고,<br/>
+    Block-QAOA를 통해 핵심 feature subset을 선택하는 연구
   </em>
 </p>
 
-<p>
-  <img src="https://img.shields.io/badge/Deepfake%20Realism-Increasing-111111?style=for-the-badge" alt="Deepfake Realism"/>
-  <img src="https://img.shields.io/badge/Feature%20Selection-Combinatorial%20Optimization-2C5BB4?style=for-the-badge" alt="Feature Selection"/>
-  <img src="https://img.shields.io/badge/M--FIG%20Block--QAOA-Graph--Aware%20Quantum%20Optimization-6B4C9A?style=for-the-badge" alt="M-FIG Block-QAOA"/>
-</p>
-
 </div>
+
+본 프로젝트는 딥페이크 이미지 탐지에서 사용되는  
+고차원 feature representation의 비효율성을 줄이기 위해,  
+그래프 기반 feature clustering과 양자 근사 최적화 알고리즘인  
+**QAOA(Quantum Approximate Optimization Algorithm)**를 결합한  
+feature selection pipeline을 제안한다.
+
+특히 본 연구는 512차원 feature를 단순한 벡터가 아니라  
+feature 간 관계를 가진 **M-FIG(Multi-Feature Interaction Graph)**로 모델링하고,  
+이를 기반으로 관련 feature들을 block 단위로 구성한 뒤  
+각 block 내부에서 QUBO 기반 Block-QAOA 최적화를 수행한다.
 
 ---
 
