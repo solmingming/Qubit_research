@@ -1,16 +1,11 @@
-## Team 1 Qubit
-
-| **항목** | **내용** |
-|------|------|
-| **프로젝트명** | 이온트랩 양자 컴퓨터에서 발생하는 측정 단계 노이즈를 효과적으로 완화하기 위한 전이학습/머신러닝 기반 솔루션 연구 |
-| **프로젝트 키워드** | - 양자 컴퓨팅 (Quantum Computing)<br>- 측정 노이즈 (Measurement Noise)<br>- 전이 학습 (Transfer Learning) |
-| **트랙** | 연구 |
-| **프로젝트 멤버** | 이솔민, 김은솜, 김정민 |
-| **팀지도교수** | 이형준 교수님 |
-| **무엇을 만들고자 하는가** | 양자 컴퓨팅의 상용화를 저해하는 측정 노이즈 문제를 해결하고자, 전이학습과 머신러닝을 활용하여 이온트랩 양자 컴퓨터의 측정 노이즈를 완화하는 솔루션을 제안 및 연구합니다. |
-| **고객** | - 양자컴퓨팅 연구자<br>- 양자-머신러닝 교차 분야 연구자<br>- NISQ 시대 속에서 양자 알고리즘을 연구하는 학부/대학원 연구실 |
-| **Pain Point** | 1. **측정 노이즈로 인한 신뢰도 저하** – 이온트랩 양자 컴퓨터는 측정 노이즈로 인해 연산 결과의 신뢰도가 크게 저하되어, NISQ 활용의 가장 큰 병목 현상이 되고 있음.<br>2. **기존 QREM 기법의 비효율성** – 대량의 캘리브레이션 데이터와 복잡한 보정 절차가 필요하며, 큐비트 수 증가 시 보정 행렬 크기가 기하급수적으로 커져 확장성이 떨어짐. |
-| **사용할 소프트웨어 패키지/명칭과 용도** | - **Qiskit**: 양자 연산 회로 설계 및 시뮬레이션 <br>- **NumPy / Pandas**: 데이터 전처리 및 확률분포 계산<br>- **PyTorch / TensorFlow**: Autoencoder/MLP 등 딥러닝 모델 구축 및 학습 프레임워크<br>- **Hugging Face PEFT Library**: LoRA 등, 효율적 전이 학습 라이브러리	<br>- **scikit-learn**: 머신러닝 라이브러리 - 데이터 전처리<br>- **Matplotlib / Seaborn**: 데이터 시각화 라이브러리 <br>- **Jupyter Notebook**: 대화형 개발 환경<br> |
-| **사용할 소프트웨어 패키지의 명칭과 URL** | - [Qiskit](https://qiskit.org/)<br>- [NumPy](https://numpy.org/) / [Pandas](https://pandas.pydata.org/)<br>- [PyTorch](https://pytorch.org/) / [TensorFlow](https://www.tensorflow.org/) <br>- [Hugging Face PEFT Library](https://huggingface.co/docs/peft/index)<br>- [scikit-learn](https://scikit-learn.org/)<br>- [Matplotlib](https://matplotlib.org/) / [Seaborn](https://seaborn.pydata.org/) <br>- [Jupyter Notebook](https://jupyter.org/)<br>|
-| **팀그라운드룰** | https://github.com/solmingming/Qubit_research/blob/abae11849a1e5a1d3836233593e7ab646292498f/GroundRule.MD) |
-| **최종수정일** | 2025.10.12.19:17 |
+# Team-01
+|    (1) 과제명    |  Graph-Clustered Block-QAOA Feature Selection for Deepfake Detection |
+|:---  |---  |
+| (2) 팀 번호/이름 | 01-Qubit |
+| (3) 구성원 | 이솔민(2271046): 리더,QUBO모델링, 양자 학습 루프 최적화 <br> 김정민(2271020): 팀원, 데이터셋 전처리 파이프라인 구축,평가 지표 구축 및 시각화 <br> 김은솜(2271018): 팀원,베이스라인 모델 개발, 딥페이크 이미지 feature추출,M-FIG 클러스터링 개발 |
+| (4) 지도교수 | 이형준 교수 |
+| (5) 트랙  | 연구 |
+| (6) 과제 키워드 | 딥페이크 탐지, Feature Selection, M-FIG, Graph Clustering, Block-QAOA, QUBO, 조합 최적화 |
+| (7) 과제 내용 요약 | **[한줄소개]** <br> 딥페이크 이미지에서 추출된 512차원 feature를 그래프 구조로 모델링하고, M-FIG 기반 그래프 클러스터링과 Block-QAOA를 결합하여 딥페이크 탐지에 중요한 핵심 feature subset을 선택하는 연구를 수행한다. <br><br> **[연구 배경 및 필요성]** <br> 생성형 AI의 발전으로 딥페이크 이미지는 점점 더 정교해지고 있으며, 단순한 시각적 차이만으로는 진위 여부를 구분하기 어려워지고 있다. 이에 따라 딥페이크 탐지 모델은 고차원 feature representation을 활용하지만, 모든 feature가 탐지 성능에 동일하게 기여하는 것은 아니다. 일부 feature는 중복되거나 노이즈를 포함할 수 있으며, 이는 연산 비용 증가와 모델 해석 가능성 저하로 이어질 수 있다. 따라서 탐지 성능을 유지하면서 핵심 feature subset을 선택하는 효율적인 feature selection 방법이 필요하다. <br><br> **[연구 목적]** <br> 본 연구는 512차원 딥페이크 feature를 M-FIG(Multi-Feature Interaction Graph)로 모델링하고, feature 간 관계를 반영한 그래프 기반 클러스터링을 통해 block을 구성한다. 이후 각 block 내부에서 QUBO 기반 Block-QAOA 최적화를 수행하여 딥페이크 탐지에 중요한 feature subset을 선택한다. 이를 통해 단순 차원 축소가 아니라, feature 간 관계를 보존하는 graph-aware quantum feature selection framework를 구축한다. <br><br> **[핵심 연구 내용 및 방법론]** <br> 1. 딥페이크 이미지에서 얼굴 영역을 검출 및 정렬하고, 사전학습된 face embedding model을 활용하여 512차원 feature를 추출한다. <br> 2. 각 feature dimension을 node로 정의하고, feature 간 상관관계와 의존성을 edge weight로 표현하여 M-FIG를 구성한다. <br> 3. M-FIG 기반 graph clustering을 통해 관련 feature들이 같은 block에 포함되도록 구성한다. <br> 4. 각 block의 feature selection 문제를 QUBO 형태로 정식화하고, Block-QAOA를 적용하여 핵심 feature subset을 선택한다. <br> 5. 선택된 feature subset을 classifier에 입력하여 Fake/Real 분류 성능을 평가하고, full feature 방식 및 sequential block 방식과 비교 분석한다. <br><br> **[실험 및 검증 계획]** <br> FaceForensics++ 데이터셋을 활용하여 제안하는 M-FIG 기반 Graph-Clustering Block-QAOA feature selection pipeline의 효과를 검증한다. 주요 평가지표로는 Detection Accuracy, Feature Compression Ratio, Performance Retention, Optimization Efficiency, Block Quality를 사용한다. 이를 통해 feature 수를 줄였을 때 탐지 성능이 얼마나 유지되는지, graph-based block 구성이 sequential block 방식보다 feature 관계를 더 잘 보존하는지 분석한다. <br><br> **[연구의 독창성 및 기대 효과]** <br> 본 연구는 딥페이크 feature를 단순한 벡터가 아니라 feature 간 관계를 가진 weighted graph로 모델링한다. 또한 NISQ 환경의 제약을 고려하여 고차원 feature selection 문제를 block-wise QAOA 구조로 분할한다. 이를 통해 딥페이크 탐지 성능을 유지하면서도 연산 비용을 줄일 수 있는 경량화된 feature selection 방법을 제안하고, 보안 AI 문제에 대한 양자-클래식 하이브리드 최적화의 응용 가능성을 검토한다. |
+| (8) 주요 Link | https://github.com/solmingming/Qubit_research |
+<br>
