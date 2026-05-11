@@ -48,8 +48,7 @@
   <em>
     딥페이크 이미지의 고차원 특징을 그래프 구조로 해석하고,<br/>
     Block-QAOA를 통해 핵심 feature subset을 선택하는 연구
-<br/>
-<br/>
+
 <br/>
   </em>
 </p>
@@ -132,6 +131,9 @@ QAOA는 조합 최적화 문제에 유망한 접근법이지만, 현재의 NISQ 
   We propose an M-FIG based Graph-Clustering Block-QAOA framework<br/>
   for structure-aware and efficient deepfake feature selection.
 </h3>
+<br/>
+<br/>
+<br/>
 
 </div>
 
