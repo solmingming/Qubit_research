@@ -1,24 +1,47 @@
-<!-- HEADER -->
 <div align="center">
 
-  <h1>Graph-Clustered Block-QAOA for Deepfake Feature Selection</h1>
-  <p><em>딥페이크 이미지의 Feature Selection을 위한 그래프 기반 클러스터링 블록-QAOA</em></p>
-
+### **Graph-aware Quantum Feature Selection for Deepfake Detection**
 
 <p>
-  <img src="https://img.shields.io/badge/QAOA-Quantum%20Optimization-6B4C9A" alt="QAOA"/>
-  <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit"/>
-  <img src="https://img.shields.io/badge/Feature%20Selection-Deepfake%20Detection-2C5BB4" alt="Feature Selection"/>
-  <img src="https://img.shields.io/badge/Graph%20Clustering-M--FIG-008080" alt="Graph Clustering"/>
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
-  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
-  <img src="https://img.shields.io/badge/NetworkX-2C5BB4" alt="NetworkX"/>
-  <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
+  <em>
+    고차원 딥페이크 특징을 그래프로 이해하고,<br/>
+    양자 최적화를 통해 핵심 feature subset을 선택하는 연구
+  </em>
 </p>
 
+<br/>
+
+<img src="https://img.shields.io/badge/Deepfake%20Detection-High--Dimensional%20Features-111111?style=for-the-badge" alt="Deepfake Detection"/>
+<img src="https://img.shields.io/badge/M--FIG-Feature%20Interaction%20Graph-2C5BB4?style=for-the-badge" alt="M-FIG"/>
+<img src="https://img.shields.io/badge/Block--QAOA-Quantum%20Optimization-6B4C9A?style=for-the-badge" alt="Block-QAOA"/>
 
 </div>
+
+<br/>
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+
+### 🧭 Motivation
+
+딥페이크 이미지는 점점 더 정교해지고 있으며,  
+이를 탐지하기 위해서는 단순한 시각적 차이를 넘어  
+얼굴 영역에 숨어 있는 미세한 위조 단서를 포착해야 한다.
+
+최근 딥페이크 탐지 모델은 이러한 단서를 표현하기 위해  
+512차원 이상의 고차원 feature representation을 활용하지만,  
+모든 feature가 탐지 성능에 동일하게 기여하는 것은 아니다.
+
+고차원 feature는 높은 표현력을 제공하는 동시에,  
+중복성, 연산 비용 증가, 해석 가능성 저하라는 문제를 함께 가진다.
+
+  </td>
+  <td width="50%" valign="top">
+
+
+
+
 
 ---
 
