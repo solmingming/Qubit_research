@@ -1,5 +1,5 @@
 # Team-01
-| (1) 과제명 |  Graph-Clustered Block-QAOA Feature Selection for Deepfake Detection |
+|    (1) 과제명    |  Graph-Clustered Block-QAOA Feature Selection for Deepfake Detection |
 |:---  |---  |
 | (2) 팀 번호/이름 | 01-Qubit |
 | (3) 구성원 | 이솔민(2271046): 리더,QUBO모델링, 양자 학습 루프 최적화 <br> 김정민(2271020): 팀원, 데이터셋 전처리 파이프라인 구축,평가 지표 구축 및 시각화 <br> 김은솜(2271018): 팀원,베이스라인 모델 개발, 딥페이크 이미지 feature추출,M-FIG 클러스터링 개발 |
