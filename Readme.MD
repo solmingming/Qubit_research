@@ -2,7 +2,7 @@
 <div align="center">
 
   <h1>딥페이크 이미지의 Feature Selection을 위한 그래프 기반 클러스터링 블록-QAOA /h1>
-  <p><em>Graph-Clustered Block-QAOA for Deepfake Feature Selection </em></p>
+ <em>Graph-Clustered Block-QAOA for Deepfake Feature Selection </em>
 
 <p>
   <img src="https://img.shields.io/badge/QAOA-Quantum%20Optimization-6B4C9A" alt="QAOA"/>
