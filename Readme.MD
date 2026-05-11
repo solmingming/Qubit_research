@@ -1,16 +1,21 @@
 <!-- HEADER -->
 <div align="center">
 
-  <h1>양자 측정 오류 완화를 위한 회귀 기반 머신러닝 솔루션</h1>
-  <p><em>Regression-based Machine Learning for Quantum Error Mitigation</em></p>
+  <h1>Graph-Clustered Block-QAOA for Deepfake Feature Selection</h1>
+  <p><em>딥페이크 이미지의 Feature Selection을 위한 그래프 기반 클러스터링 블록-QAOA</em></p>
 
-  <!-- 핵심 배지 -->
-  <p>
-    <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit"/>
-    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
-    <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"/>
-    <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
-  </p>
+
+<p>
+  <img src="https://img.shields.io/badge/QAOA-Quantum%20Optimization-6B4C9A" alt="QAOA"/>
+  <img src="https://img.shields.io/badge/Qiskit-6B4C9A?logo=qiskit&logoColor=white" alt="Qiskit"/>
+  <img src="https://img.shields.io/badge/Feature%20Selection-Deepfake%20Detection-2C5BB4" alt="Feature Selection"/>
+  <img src="https://img.shields.io/badge/Graph%20Clustering-M--FIG-008080" alt="Graph Clustering"/>
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
+  <img src="https://img.shields.io/badge/NetworkX-2C5BB4" alt="NetworkX"/>
+  <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
+</p>
 
 
 </div>
@@ -20,15 +25,21 @@
 ## 📌 프로젝트 소개
 
 팀명 **Qubit**은 양자컴퓨팅의 최소 단위이자,  
-여러 가능성을 동시에 품는 **중첩(Superposition)** 개념에서 영감을 받았다.
+여러 가능성을 동시에 탐색하는 **중첩(Superposition)** 개념에서 영감을 받았다.
 
-본 프로젝트는 양자 오류 완화(Quantum Error Mitigation, QEM)를 위해  
-머신러닝 기반의 데이터 중심(data-driven) 접근법을 실험적으로 검증하는 것을 목표로 한다.
+본 프로젝트는 딥페이크 이미지 탐지를 위한  
+**고차원 feature selection 문제**를 양자 최적화 관점에서 해결하고자 한다.
 
-특히 본 연구에서는  
-**보정 행렬(calibration)이나 명시적 오류 모델링 없이**,  
-노이즈가 포함된 측정 결과로부터 **이상적인 관측값을 직접 회귀(regression)로 복원**하는 방법을 구현한다.
+이를 위해 512차원 딥페이크 feature를  
+**M-FIG(Multi-Feature Interaction Graph)**로 모델링하고,  
+feature 간 관계를 반영한 그래프 기반 클러스터링을 통해  
+QAOA가 처리 가능한 작은 block 단위로 분할한다.
 
+각 block에서는 **QUBO 정식화와 Block-QAOA 최적화**를 수행하여,  
+탐지 성능에 기여하는 핵심 feature subset을 선택한다.
+
+본 연구는 제한된 NISQ 환경에서도 적용 가능한  
+**graph-aware quantum feature selection pipeline**을 구현하는 것을 목표로 한다.
 ---
 
 ## 🧠 연구 주제
