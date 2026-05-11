@@ -2,19 +2,38 @@
 <div align="center">
 
   <h1>
-    딥페이크 이미지 Feature Selection을 위한<br/>
-    그래프 기반 클러스터링 Block-QAOA
+    Graph-Clustered Block-QAOA<br/>
+    for Deepfake Feature Selection
   </h1>
 
   <p>
-    <em>Graph-Clustered Block-QAOA for Deepfake Feature Selection</em>
+    <em>딥페이크 이미지 Feature Selection을 위한 그래프 기반 클러스터링 블록-QAOA</em>
   </p>
 
   <p>
-    <img src="https://img.shields.io/badge/Research-Deepfake%20Detection-111111?style=for-the-badge" alt="Deepfake Detection"/>
-    <img src="https://img.shields.io/badge/Task-Feature%20Selection-2C5BB4?style=for-the-badge" alt="Feature Selection"/>
-    <img src="https://img.shields.io/badge/Method-M--FIG%20Block--QAOA-6B4C9A?style=for-the-badge" alt="M-FIG Block-QAOA"/>
+    <img src="https://img.shields.io/badge/Deepfake%20Detection-111111?style=for-the-badge" alt="Deepfake Detection"/>
+    <img src="https://img.shields.io/badge/M--FIG-Feature%20Interaction%20Graph-008080?style=for-the-badge" alt="M-FIG"/>
+    <img src="https://img.shields.io/badge/Block--QAOA-Quantum%20Optimization-6B4C9A?style=for-the-badge" alt="Block-QAOA"/>
   </p>
+
+  <p>
+    <em>
+      A graph-aware quantum feature selection pipeline<br/>
+      for high-dimensional deepfake representations
+    </em>
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Qiskit-6B4C9A?style=flat-square&logo=qiskit&logoColor=white" alt="Qiskit"/>
+    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch"/>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+    <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
+    <img src="https://img.shields.io/badge/NetworkX-2C5BB4?style=flat-square" alt="NetworkX"/>
+    <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" alt="Jupyter"/>
+  </p>
+
+</div>
+
 
   <p>
     <img src="https://img.shields.io/badge/Qiskit-6B4C9A?style=flat-square&logo=qiskit&logoColor=white" alt="Qiskit"/>
