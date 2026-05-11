@@ -161,7 +161,7 @@ feature 간 상관관계와 의존성을 edge weight로 표현하는
 ## 🔬 Research Pipeline
 
 <p align="center">
-  <img src="./docs/pipeline.png" width="95%" alt="M-FIG Block-QAOA Research Pipeline"/>
+  <img src="./docs/pipeline.png" width="60%" alt="M-FIG Block-QAOA Research Pipeline"/>
 </p>
 
 <p align="center">
