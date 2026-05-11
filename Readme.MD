@@ -53,6 +53,10 @@
 <br/>
   </em>
 </p>
+<p align="center">
+  <img src="./docs/face.png" width="60%" alt="M-FIG Block-QAOA Research Pipeline"/>
+</p>
+
 
 </div>
 
