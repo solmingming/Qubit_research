@@ -53,14 +53,13 @@
   </em>
 </p>
 <p align="center">
-  <img src="./docs/face.png" width="20%" alt="M-FIG Block-QAOA Research Pipeline"/>
+  <img src="./docs/face.png" width="30%" alt="M-FIG Block-QAOA Research Pipeline"/>
 </p>
 
 
 </div>
 
-본 프로젝트는 딥페이크 이미지 탐지에서 사용되는 고차원 feature representation의 비효율성을 줄이기 위해,그래프 기반 feature clustering과 양자 근사 최적화 알고리즘인 QAOA(Quantum Approximate Optimization Algorithm)를 결합한 feature selection pipeline을 제안한다. 특히 본 연구는 512차원 feature를 단순한 벡터가 아니라 feature 간 관계를 가진 M-FIG(Multi-Feature Interaction Graph)로 모델링하고,이를 기반으로 관련 feature들을 block 단위로 구성한 뒤 각 block 내부에서 QUBO 기반 Block-QAOA 최적화를 수행한다.
-
+본 프로젝트는 딥페이크 이미지 탐지에서 사용되는 고차원 feature representation의 비효율성을 줄이기 위해, 그래프 기반 feature clustering과 양자 근사 최적화 알고리즘인 QAOA를 결합한 feature selection pipeline을 제안한다. 본 연구는 딥페이크 feature를 단순한 벡터가 아니라 feature 간 관계를 가진 graph structure로 해석하고, 이를 기반으로 제한된 NISQ 환경에서도 적용 가능한 Block-QAOA 기반 feature selection 방법을 설계한다.
 ---
 
 ### 🧭 Motivation Flow
@@ -137,19 +136,20 @@ QAOA는 조합 최적화 문제에 유망한 접근법이지만, 현재의 NISQ 
 
 </div>
 
-본 연구는 딥페이크 이미지에서 추출된 512차원 feature를 단순한 숫자 배열로 보지 않고, feature 간 관계를 가진 상호작용 그래프로 해석한다.이를 위해 각 feature dimension을 node로 정의하고,feature 간 상관관계와 의존성을 edge weight로 표현하는 M-FIG(Multi-Feature Interaction Graph)를 구성한다. 이후 M-FIG를 기반으로 관련 있는 feature들을 block 단위로 clustering하고,각 block 내부에서 **QUBO 정식화**와 **Block-QAOA 최적화**를 수행하여 딥페이크 탐지에 중요한 feature subset을 선택한다.
+본 연구는 딥페이크 이미지에서 추출된 512차원 feature를 단순한 숫자 배열로 보지 않고, feature 간 관계를 가진 상호작용 그래프로 해석한다.이를 위해 각 feature dimension을 node로 정의하고, feature 간 상관관계와 의존성을 edge weight로 표현하는 M-FIG(Multi-Feature Interaction Graph)를 구성한다. 이후 M-FIG를 기반으로 관련 있는 feature들을 block 단위로 clustering하고, 각 block 내부에서 **QUBO 정식화**와 **Block-QAOA 최적화**를 수행하여 딥페이크 탐지에 중요한 feature subset을 선택한다.
 
 ---
 
-### ✨ Core Idea
+### ✨ Core Components
 
-| Problem | Insight | Our Solution |
-|---|---|---|
-| 딥페이크가 점점 정교해짐 | 미세한 feature 분석이 필요함 | 고차원 face embedding 활용 |
-| 고차원 feature는 비용과 중복성이 큼 | 모든 feature가 동일하게 중요하지 않음 | Feature selection 수행 |
-| Feature selection은 조합 최적화 문제임 | QAOA는 조합 최적화에 적합함 | QUBO 기반 QAOA 적용 |
-| 512차원을 직접 QAOA에 넣기 어려움 | NISQ 환경에서는 문제 분할이 필요함 | Block-QAOA 구조 사용 |
-| 단순 순차 분할은 관계를 잃을 수 있음 | 관련 feature는 함께 최적화되어야 함 | M-FIG 기반 graph clustering |
+| Component | Role |
+|---|---|
+| **512-D Feature Representation** | 딥페이크 이미지의 미세한 위조 단서를 표현하는 고차원 feature |
+| **M-FIG** | feature dimension 간 관계를 weighted graph로 모델링 |
+| **Graph-based Clustering** | 관련 feature들을 같은 block으로 구성 |
+| **QUBO Formulation** | feature selection 문제를 binary optimization 문제로 변환 |
+| **Block-QAOA** | 각 block 내부에서 핵심 feature subset을 선택 |
+| **Classifier** | 선택된 feature subset을 사용하여 Fake/Real 판별 수행 |
 
 ---
 
@@ -168,7 +168,25 @@ QAOA는 조합 최적화 문제에 유망한 접근법이지만, 현재의 NISQ 
 The proposed framework consists of three stages:  
 classical feature extraction, M-FIG based graph construction, and hybrid quantum-classical feature selection.
 
+## 📌 Research Contribution
 
+본 연구의 주요 기여는 다음과 같다.
+
+1. **M-FIG 기반 feature interaction modeling**  
+   딥페이크 이미지에서 추출된 512차원 feature를 단순한 벡터가 아니라,  
+   feature 간 관계를 가진 weighted graph로 모델링하였다.
+
+2. **Graph-based block construction**  
+   기존의 sequential partitioning 방식과 달리,  
+   feature 간 관계를 반영하여 관련 feature들이 같은 block에 배치되도록 구성하였다.
+
+3. **NISQ-aware Block-QAOA pipeline**  
+   512차원 feature 전체를 직접 QAOA에 입력하기 어려운 NISQ 제약을 고려하여,  
+   block-wise quantum optimization 구조를 설계하였다.
+
+4. **Efficient deepfake feature selection**  
+   고차원 feature 중 탐지에 중요한 subset을 선택함으로써,  
+   연산 효율성과 모델 해석 가능성을 높이는 방향을 제안하였다.
 
 
 ### 👩‍💻 Members
