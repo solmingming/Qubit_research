@@ -54,7 +54,7 @@
   </em>
 </p>
 <p align="center">
-  <img src="./docs/face.png" width="30%" alt="M-FIG Block-QAOA Research Pipeline"/>
+  <img src="./docs/face.png" width="15%" alt="M-FIG Block-QAOA Research Pipeline"/>
 </p>
 
 
