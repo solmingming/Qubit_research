@@ -56,13 +56,14 @@
   <img src="./docs/face.png" width="30%" alt="M-FIG Block-QAOA Research Pipeline"/>
 </p>
 
+</div>
 
 본 프로젝트는 딥페이크 이미지 탐지에서 사용되는 고차원 feature representation의 비효율성을 줄이기 위해,</br>
 그래프 기반 feature clustering과 양자 근사 최적화 알고리즘인 QAOA를 결합한 feature selection pipeline을 제안한다.</br>
 본 연구는 딥페이크 feature를 단순한 벡터가 아니라 feature 간 관계를 가진 graph structure로 해석하고,</br>
 이를 기반으로 제한된 NISQ 환경에서도 적용 가능한 Block-QAOA 기반 feature selection 방법을 설계한다.
 
-</div>
+
 ---
 
 ### 🧭 Motivation Flow
