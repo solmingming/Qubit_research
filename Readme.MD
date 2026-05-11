@@ -134,7 +134,7 @@ QAOA는 조합 최적화 문제에 유망한 접근법이지만, 현재의 NISQ 
 </div>
 
 본 연구는 딥페이크 이미지에서 추출된 512차원 feature를 단순한 숫자 배열로 보지 않고,  
-feature 간 관계를 가진 **상호작용 그래프**로 해석한다.
+feature 간 관계를 가진 상호작용 그래프로 해석한다.
 
 이를 위해 각 feature dimension을 node로 정의하고,  
 feature 간 상관관계와 의존성을 edge weight로 표현하는  
