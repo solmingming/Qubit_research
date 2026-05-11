@@ -132,8 +132,9 @@ QAOA는 조합 최적화 문제에 유망한 접근법이지만, 현재의 NISQ 
   for structure-aware and efficient deepfake feature selection.
 </h3>
 <br/>
-<br/>
-<br/>
+<p align="center">
+  <img src="./docs/description.png" width="40%" alt="M-FIG Block-QAOA Research Pipeline"/>
+</p>
 
 </div>
 
