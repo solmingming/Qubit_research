@@ -18,29 +18,32 @@
 ## Table of Contents
 
 * [1. Basic Description](#1-basic-description)
-* [2. Project Description](#2-project-description)
-* [3. Source Code Description](#3-source-code-description)
-* [4. Repository Structure](#4-repository-structure)
-* [5. How to Build](#5-how-to-build)
-* [6. How to Install](#6-how-to-install)
+* [2. Computational Resource Notice](#2-computational-resource-notice)
+* [3. Project Description](#3-project-description)
+* [4. Source Code Description](#4-source-code-description)
+* [5. Repository Structure](#5-repository-structure)
+* [6. How to Build](#6-how-to-build)
+* [7. How to Install](#7-how-to-install)
 
-  * [6.1 Clone the Repository](#61-clone-the-repository)
-  * [6.2 Create a Virtual Environment](#62-create-a-virtual-environment)
-  * [6.3 Install Required Packages](#63-install-required-packages)
-* [7. How to Test](#7-how-to-test)
-* [8. Description of Sample Data](#8-description-of-sample-data)
-* [9. Database or Data Used](#9-database-or-data-used)
-* [10. Description of Used Open Source](#10-description-of-used-open-source)
-* [11. Reproducibility Notes](#11-reproducibility-notes)
-* [12. Troubleshooting](#12-troubleshooting)
-* [13. Team](#13-team)
-* [14. License](#14-license)
+  * [7.1 Clone the Repository](#71-clone-the-repository)
+  * [7.2 Create a Virtual Environment](#72-create-a-virtual-environment)
+  * [7.3 Install Required Packages](#73-install-required-packages)
+  * [7.4 Installation Check](#74-installation-check)
+* [8. How to Test](#8-how-to-test)
+* [9. Experimental Results](#9-experimental-results)
+* [10. Description of Sample Data](#10-description-of-sample-data)
+* [11. Database or Data Used](#11-database-or-data-used)
+* [12. Description of Used Open Source](#12-description-of-used-open-source)
+* [13. Reproducibility Notes](#13-reproducibility-notes)
+* [14. Troubleshooting](#14-troubleshooting)
+* [15. Team](#15-team)
+* [16. License](#16-license)
 
 ---
 
 ## 1. Basic Description
 
-This repository contains the final source code and sample dataset for Team Qubit's graduation project.
+This repository contains the final source code, installation requirements, sample dataset, and experiment-related files for Team Qubit's graduation project.
 
 The project implements a **hybrid deepfake detection pipeline** that combines:
 
@@ -68,9 +71,54 @@ The dataset is stored in:
 archive/dataset_processed_split/
 ```
 
+The README file provides instructions for:
+
+* source code structure,
+* build process,
+* installation,
+* test execution,
+* sample data description,
+* data used in the experiment,
+* open-source libraries used,
+* and experiment result files.
+
 ---
 
-## 2. Project Description
+## 2. Computational Resource Notice
+
+This repository provides the **full experimental pipeline**, not only a lightweight inference demo.
+
+The code performs:
+
+```text
+MTCNN-based face detection
+→ ResNet18 feature extraction
+→ M-FIG construction
+→ feature block clustering
+→ Block-QAOA-based feature selection
+→ classifier training
+→ final evaluation
+```
+
+Because the pipeline includes both deep learning-based feature extraction and QAOA-based optimization, execution can be computationally expensive.
+
+CPU-only execution is supported, but it may take a long time depending on the hardware specification and dataset size. For smoother reproduction, a GPU-enabled environment and sufficient disk space are recommended.
+
+Recommended environment:
+
+| Component | Recommendation                                 |
+| --------- | ---------------------------------------------- |
+| Python    | 3.10                                           |
+| Memory    | 16GB RAM or higher recommended                 |
+| GPU       | CUDA-supported GPU recommended                 |
+| Storage   | Sufficient free disk space required            |
+| Runtime   | CPU-only execution is possible but may be slow |
+
+If the execution appears to take a long time, this is likely due to the computational cost of the full pipeline rather than a program error.
+
+---
+
+## 3. Project Description
 
 Deepfake technology can generate or manipulate facial images with high visual realism. As synthetic images become increasingly difficult to distinguish from real images, deepfake detection has become an important task in computer vision and media forensics.
 
@@ -100,7 +148,7 @@ The main idea is to first extract high-dimensional visual features from face ima
 
 ---
 
-## 3. Source Code Description
+## 4. Source Code Description
 
 The main source code is implemented in:
 
@@ -112,7 +160,7 @@ The source code consists of the following major components.
 
 ---
 
-### 3.1 Environment and Hyperparameter Settings
+### 4.1 Environment and Hyperparameter Settings
 
 At the beginning of the code, dataset paths and major hyperparameters are defined.
 
@@ -143,7 +191,7 @@ If CUDA is not available, the code runs on CPU.
 
 ---
 
-### 3.2 Dataset Loading and Preprocessing
+### 4.2 Dataset Loading and Preprocessing
 
 The `DeepfakeDataset` class loads image metadata from:
 
@@ -171,7 +219,7 @@ Invalid or unreadable images are safely handled by returning a dummy tensor with
 
 ---
 
-### 3.3 Feature Extraction with ResNet18
+### 4.3 Feature Extraction with ResNet18
 
 The function `get_backbone()` loads a pretrained ResNet18 model from TorchVision.
 
@@ -185,7 +233,7 @@ Each valid input image is converted into a 512-dimensional feature vector.
 
 ---
 
-### 3.4 Feature Extraction Function
+### 4.4 Feature Extraction Function
 
 The function `extract_features()` receives a dataloader and a backbone model.
 
@@ -200,7 +248,7 @@ The function ignores invalid samples whose label is `-1`.
 
 ---
 
-### 3.5 M-FIG Construction
+### 4.5 M-FIG Construction
 
 The function `build_mfig_and_cluster()` constructs a Multi-Feature Interaction Graph, or M-FIG.
 
@@ -216,7 +264,7 @@ The 512-dimensional feature space is then divided into feature blocks using aggl
 
 ---
 
-### 3.6 Block-QAOA Feature Selection
+### 4.6 Block-QAOA Feature Selection
 
 The function `select_features_qaoa()` performs block-wise feature selection.
 
@@ -234,7 +282,7 @@ If QAOA fails for a certain block, the code automatically switches to a greedy m
 
 ---
 
-### 3.7 Quantum-inspired Attention Classifier
+### 4.7 Quantum-inspired Attention Classifier
 
 The final classifier is implemented as:
 
@@ -258,7 +306,7 @@ Probability close to 1 → FAKE
 
 ---
 
-### 3.8 Main Execution Pipeline
+### 4.8 Main Execution Pipeline
 
 The `main()` function executes the full experiment.
 
@@ -283,7 +331,7 @@ The final evaluation metrics include:
 
 ---
 
-## 4. Repository Structure
+## 5. Repository Structure
 
 The repository is expected to have the following structure:
 
@@ -320,6 +368,10 @@ final/
 │       │
 │       └── dataset_manifest.csv
 │
+├── results/
+│   ├── experiment_log.txt
+│   └── final_metrics.txt
+│
 ├── final.py
 ├── requirements.txt
 └── Readme.md
@@ -329,7 +381,7 @@ final/
 
 ---
 
-## 5. How to Build
+## 6. How to Build
 
 This project is implemented in Python. Therefore, no separate compilation process is required.
 
@@ -355,7 +407,7 @@ If no error message appears, the source code has no syntax error.
 
 ---
 
-## 6. How to Install
+## 7. How to Install
 
 This project can be executed on Windows, macOS, or Linux.
 
@@ -370,7 +422,7 @@ The same `requirements.txt` file is used for all operating systems.
 
 ---
 
-### 6.1 Clone the Repository
+### 7.1 Clone the Repository
 
 Clone the repository.
 
@@ -396,7 +448,7 @@ It is important to execute the code inside the `final` directory because the dat
 
 ---
 
-### 6.2 Create a Virtual Environment
+### 7.2 Create a Virtual Environment
 
 #### Windows
 
@@ -432,7 +484,7 @@ If the environment is activated successfully, the prompt will look similar to:
 
 ---
 
-### 6.3 Install Required Packages
+### 7.3 Install Required Packages
 
 After activating the environment, upgrade pip first.
 
@@ -473,7 +525,7 @@ This project uses `opencv-python-headless` instead of `opencv-python` to reduce 
 
 ---
 
-### 6.4 Installation Check
+### 7.4 Installation Check
 
 After installation, check whether the main packages are installed correctly.
 
@@ -488,7 +540,7 @@ If all commands run without errors, the installation is complete.
 
 ---
 
-## 7. How to Test
+## 8. How to Test
 
 Before running the full experiment, check whether the source file has no syntax error.
 
@@ -541,7 +593,54 @@ A successful run means that:
 
 ---
 
-## 8. Description of Sample Data
+## 9. Experimental Results
+
+Experiment result files are provided in the following directory:
+
+```bash
+results/
+```
+
+The result directory is intended to include execution logs and final evaluation metrics generated by running `final.py`.
+
+```bash
+results/
+├── experiment_log.txt
+└── final_metrics.txt
+```
+
+| File                 | Description                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| `experiment_log.txt` | Full terminal log generated while executing `python final.py`                          |
+| `final_metrics.txt`  | Final evaluation metrics, including Accuracy, Precision, Recall, F1-Score, and AUC-ROC |
+
+The final metrics are printed at the end of execution and summarized in `results/final_metrics.txt`.
+
+If the experiment is rerun, the terminal output can be saved as follows.
+
+#### Windows
+
+```bat
+mkdir results
+python final.py > results\experiment_log.txt 2>&1
+```
+
+#### macOS / Linux
+
+```bash
+mkdir -p results
+python final.py > results/experiment_log.txt 2>&1
+```
+
+After execution, the final metric values can be copied from the log file and summarized in:
+
+```bash
+results/final_metrics.txt
+```
+
+---
+
+## 10. Description of Sample Data
 
 The sample data is stored in:
 
@@ -580,7 +679,7 @@ archive/dataset_processed_split/test/FaceSwap/example.jpg
 
 ---
 
-## 9. Database or Data Used
+## 11. Database or Data Used
 
 This project uses a processed deepfake image dataset.
 
@@ -611,7 +710,7 @@ The current source code uses the `split`, `label`, `fake_type`, and `filename` c
 
 ---
 
-## 10. Description of Used Open Source
+## 12. Description of Used Open Source
 
 This project uses the following open-source libraries.
 
@@ -636,31 +735,31 @@ Major open-source components used in the implementation are described below.
 
 ---
 
-### 10.1 TorchVision ResNet18
+### 12.1 TorchVision ResNet18
 
 The project uses a pretrained ResNet18 model from TorchVision as the image feature extraction backbone. The final classification layer is removed so that the model outputs feature vectors instead of class labels.
 
 ---
 
-### 10.2 facenet-pytorch MTCNN
+### 12.2 facenet-pytorch MTCNN
 
 MTCNN is used to detect and crop face regions from the input images before feature extraction.
 
 ---
 
-### 10.3 Qiskit QAOA
+### 12.3 Qiskit QAOA
 
 Qiskit-related packages are used to implement the Block-QAOA feature selection process. The feature selection problem is formulated as a QUBO problem and solved using QAOA.
 
 ---
 
-### 10.4 OpenCV Headless
+### 12.4 OpenCV Headless
 
 OpenCV Headless is used for image loading, RGB conversion, and Laplacian variance-based blur detection. The headless version is used because this project does not require GUI functions such as `cv2.imshow()`.
 
 ---
 
-## 11. Reproducibility Notes
+## 13. Reproducibility Notes
 
 To reproduce the experiment, run the code from the `final` directory.
 
@@ -690,11 +789,25 @@ Small numerical differences may occur depending on:
 * random initialization in model training,
 * QAOA optimization behavior.
 
+### Computational Cost
+
+This project may require a relatively high computational cost because it runs the full experimental process rather than only loading a trained model for inference.
+
+The runtime may increase due to:
+
+* MTCNN-based face detection,
+* ResNet18 feature extraction,
+* feature interaction matrix computation,
+* Block-QAOA optimization,
+* and classifier training.
+
+CPU-only execution is possible but may be slow. A GPU-enabled environment is recommended for faster reproduction.
+
 ---
 
-## 12. Troubleshooting
+## 14. Troubleshooting
 
-### 12.1 Dataset Path Error
+### 14.1 Dataset Path Error
 
 If the dataset file cannot be found, check whether the following file exists:
 
@@ -711,7 +824,7 @@ python final.py
 
 ---
 
-### 12.2 Missing Train or Test Data
+### 14.2 Missing Train or Test Data
 
 The current code requires both `train` and `test` splits.
 
@@ -726,7 +839,7 @@ Also check whether `dataset_manifest.csv` contains rows where the `split` column
 
 ---
 
-### 12.3 CSV Column Error
+### 14.3 CSV Column Error
 
 If a key error occurs while reading the CSV file, check whether `dataset_manifest.csv` contains the following columns:
 
@@ -739,7 +852,7 @@ filename
 
 ---
 
-### 12.4 ModuleNotFoundError
+### 14.4 ModuleNotFoundError
 
 If a Python package is missing, install dependencies again.
 
@@ -749,7 +862,7 @@ pip install --no-cache-dir -r requirements.txt
 
 ---
 
-### 12.5 OpenCV Import Error
+### 14.5 OpenCV Import Error
 
 If `cv2` cannot be imported, reinstall OpenCV Headless.
 
@@ -766,7 +879,7 @@ python -c "import cv2; print(cv2.__version__)"
 
 ---
 
-### 12.6 PyTorch Installation Error
+### 14.6 PyTorch Installation Error
 
 If PyTorch installation fails, install PyTorch separately according to the local CPU or GPU environment.
 
@@ -784,7 +897,7 @@ pip install --no-cache-dir -r requirements.txt
 
 ---
 
-### 12.7 Qiskit-related Error
+### 14.7 Qiskit-related Error
 
 If Qiskit-related modules are missing, reinstall the Qiskit packages.
 
@@ -794,7 +907,7 @@ pip install "qiskit>=1.0,<2.0" "qiskit-algorithms>=0.3,<0.4" "qiskit-optimizatio
 
 ---
 
-### 12.8 No Space Left on Device
+### 14.8 No Space Left on Device
 
 If the following error appears:
 
@@ -822,7 +935,7 @@ pip install --no-cache-dir -r requirements.txt
 
 ---
 
-### 12.9 Slow Execution
+### 14.9 Slow Execution
 
 This code may take time because it performs:
 
@@ -836,7 +949,7 @@ CPU-only execution is supported but may be slow.
 
 ---
 
-## 13. Team
+## 15. Team
 
 **Team Qubit**
 
@@ -852,7 +965,7 @@ Ewha Womans University
 
 ---
 
-## 14. License
+## 16. License
 
 This repository is intended for academic and educational purposes.
 
