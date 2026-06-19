@@ -6,10 +6,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.9%2B-blue" />
-  <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-red" />
+  <img src="https://img.shields.io/badge/Python-3.10-blue" />
+  <img src="https://img.shields.io/badge/PyTorch-2.2.2-red" />
   <img src="https://img.shields.io/badge/Qiskit-QAOA-purple" />
   <img src="https://img.shields.io/badge/Task-Deepfake%20Detection-green" />
+  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" />
 </p>
 
 ---
@@ -22,12 +23,18 @@
 * [4. Repository Structure](#4-repository-structure)
 * [5. How to Build](#5-how-to-build)
 * [6. How to Install](#6-how-to-install)
+
+  * [6.1 Clone the Repository](#61-clone-the-repository)
+  * [6.2 Create a Virtual Environment](#62-create-a-virtual-environment)
+  * [6.3 Install Required Packages](#63-install-required-packages)
 * [7. How to Test](#7-how-to-test)
 * [8. Description of Sample Data](#8-description-of-sample-data)
 * [9. Database or Data Used](#9-database-or-data-used)
 * [10. Description of Used Open Source](#10-description-of-used-open-source)
-* [11. Troubleshooting](#11-troubleshooting)
-* [12. Team](#12-team)
+* [11. Reproducibility Notes](#11-reproducibility-notes)
+* [12. Troubleshooting](#12-troubleshooting)
+* [13. Team](#13-team)
+* [14. License](#14-license)
 
 ---
 
@@ -65,7 +72,7 @@ archive/dataset_processed_split/
 
 ## 2. Project Description
 
-Deepfake technology can generate or manipulate facial images with high visual realism. As these synthetic images become more difficult to distinguish from real images, deepfake detection has become an important task in computer vision and media forensics.
+Deepfake technology can generate or manipulate facial images with high visual realism. As synthetic images become increasingly difficult to distinguish from real images, deepfake detection has become an important task in computer vision and media forensics.
 
 This project proposes a hybrid detection approach that combines **classical deep learning** and **quantum optimization**.
 
@@ -132,6 +139,8 @@ The code automatically uses GPU if CUDA is available.
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 ```
 
+If CUDA is not available, the code runs on CPU.
+
 ---
 
 ### 3.2 Dataset Loading and Preprocessing
@@ -158,6 +167,8 @@ REAL → 0
 FAKE → 1
 ```
 
+Invalid or unreadable images are safely handled by returning a dummy tensor with label `-1`. These invalid samples are skipped during feature extraction.
+
 ---
 
 ### 3.3 Feature Extraction with ResNet18
@@ -166,15 +177,30 @@ The function `get_backbone()` loads a pretrained ResNet18 model from TorchVision
 
 The final classification layer is removed, and the model is used only as a feature extractor.
 
-Each face image is transformed into a 512-dimensional feature vector.
-
 ```text
 Face image → ResNet18 backbone → 512-dimensional feature vector
 ```
 
+Each valid input image is converted into a 512-dimensional feature vector.
+
 ---
 
-### 3.4 M-FIG Construction
+### 3.4 Feature Extraction Function
+
+The function `extract_features()` receives a dataloader and a backbone model.
+
+It returns:
+
+| Output | Description              |
+| ------ | ------------------------ |
+| `X`    | Extracted feature matrix |
+| `y`    | Label vector             |
+
+The function ignores invalid samples whose label is `-1`.
+
+---
+
+### 3.5 M-FIG Construction
 
 The function `build_mfig_and_cluster()` constructs a Multi-Feature Interaction Graph, or M-FIG.
 
@@ -190,7 +216,7 @@ The 512-dimensional feature space is then divided into feature blocks using aggl
 
 ---
 
-### 3.5 Block-QAOA Feature Selection
+### 3.6 Block-QAOA Feature Selection
 
 The function `select_features_qaoa()` performs block-wise feature selection.
 
@@ -208,7 +234,7 @@ If QAOA fails for a certain block, the code automatically switches to a greedy m
 
 ---
 
-### 3.6 Quantum-inspired Attention Classifier
+### 3.7 Quantum-inspired Attention Classifier
 
 The final classifier is implemented as:
 
@@ -232,7 +258,7 @@ Probability close to 1 → FAKE
 
 ---
 
-### 3.7 Main Execution Pipeline
+### 3.8 Main Execution Pipeline
 
 The `main()` function executes the full experiment.
 
@@ -299,6 +325,8 @@ final/
 └── Readme.md
 ```
 
+> Note: The current version of `final.py` mainly uses the `train` and `test` splits. The `val` split is included in the dataset directory but is not directly used in the current code.
+
 ---
 
 ## 5. How to Build
@@ -309,12 +337,13 @@ However, users should prepare a Python environment and install all required depe
 
 Recommended environment:
 
-| Item   | Recommended Version                      |
-| ------ | ---------------------------------------- |
-| Python | 3.9 or higher                            |
-| pip    | Latest version                           |
-| OS     | Windows, macOS, or Linux                 |
-| GPU    | Optional, CUDA-supported GPU recommended |
+| Item                | Recommended Setting                      |
+| ------------------- | ---------------------------------------- |
+| Python              | 3.10                                     |
+| Package manager     | pip                                      |
+| Virtual environment | conda                                    |
+| OS                  | Windows, macOS, or Linux                 |
+| GPU                 | Optional, CUDA-supported GPU recommended |
 
 To check whether the Python source code is syntactically valid, run:
 
@@ -322,102 +351,170 @@ To check whether the Python source code is syntactically valid, run:
 python -m py_compile final.py
 ```
 
-If no error appears, the source code has no syntax error.
+If no error message appears, the source code has no syntax error.
 
 ---
 
 ## 6. How to Install
 
+This project can be executed on Windows, macOS, or Linux.
+
+For stable execution, we recommend using:
+
+```text
+Python 3.10
+conda virtual environment
+```
+
+The same `requirements.txt` file is used for all operating systems.
+
+---
+
 ### 6.1 Clone the Repository
 
+Clone the repository.
+
 ```bash
-git clone https://github.com/solmingming/Qubit_research.git
+git clone --depth 1 https://github.com/solmingming/Qubit_research.git
+```
+
+Move into the `final` directory.
+
+#### Windows
+
+```bat
+cd Qubit_research\final
+```
+
+#### macOS / Linux
+
+```bash
 cd Qubit_research/final
 ```
 
-The code should be executed inside the `final` directory because the dataset path is defined relative to this location.
+It is important to execute the code inside the `final` directory because the dataset path is defined relative to this location.
 
 ---
 
 ### 6.2 Create a Virtual Environment
 
-Using `venv`:
+#### Windows
 
-```bash
-python -m venv venv
-source venv/bin/activate
-```
+Open **Anaconda Prompt** and run:
 
-For Windows:
-
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-Using `conda`:
-
-```bash
-conda create -n qubit-final python=3.10
+```bat
+conda create -n qubit-final python=3.10 -y
 conda activate qubit-final
+```
+
+If the environment is activated successfully, the prompt will look similar to:
+
+```bat
+(qubit-final) C:\Users\...\Qubit_research\final>
+```
+
+---
+
+#### macOS / Linux
+
+Open Terminal and run:
+
+```bash
+conda create -n qubit-final python=3.10 -y
+conda activate qubit-final
+```
+
+If the environment is activated successfully, the prompt will look similar to:
+
+```bash
+(qubit-final) user@computer final %
 ```
 
 ---
 
 ### 6.3 Install Required Packages
 
-Install the dependencies using:
+After activating the environment, upgrade pip first.
 
 ```bash
-pip install -r requirements.txt
+python -m pip install --upgrade pip setuptools wheel
 ```
 
-The `requirements.txt` file should include:
-
-```text
-numpy>=1.23.0
-pandas>=1.5.0
-opencv-python>=4.7.0
-scikit-learn>=1.2.0
-tqdm>=4.64.0
-torch>=2.0.0
-torchvision>=0.15.0
-facenet-pytorch>=2.5.3
-qiskit>=1.0.0
-qiskit-algorithms>=0.3.0
-qiskit-optimization>=0.6.0
-```
-
-If PyTorch installation fails, install PyTorch separately according to the local CPU or GPU environment, and then run:
+Then install the required packages.
 
 ```bash
-pip install -r requirements.txt
+pip install --no-cache-dir -r requirements.txt
 ```
+
+The `requirements.txt` file should contain:
+
+```txt
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.13.1
+pillow==10.4.0
+
+opencv-python-headless==4.10.0.84
+
+scikit-learn==1.5.2
+tqdm==4.66.5
+
+torch==2.2.2
+torchvision==0.17.2
+facenet-pytorch==2.5.3
+
+qiskit>=1.0,<2.0
+qiskit-algorithms>=0.3,<0.4
+qiskit-optimization>=0.7,<0.8
+docplex>=2.25.236
+```
+
+This project uses `opencv-python-headless` instead of `opencv-python` to reduce OpenCV GUI-related dependency issues in virtual environments.
+
+---
+
+### 6.4 Installation Check
+
+After installation, check whether the main packages are installed correctly.
+
+```bash
+python -c "import cv2; print('cv2 ok:', cv2.__version__)"
+python -c "import torch; print('torch ok:', torch.__version__)"
+python -c "import torchvision; print('torchvision ok:', torchvision.__version__)"
+python -c "import qiskit; print('qiskit ok')"
+```
+
+If all commands run without errors, the installation is complete.
 
 ---
 
 ## 7. How to Test
 
-After installation, run the following command from the `final` directory:
+Before running the full experiment, check whether the source file has no syntax error.
+
+```bash
+python -m py_compile final.py
+```
+
+If no error message appears, run the full experiment.
 
 ```bash
 python final.py
 ```
 
-The program will automatically run the full experiment pipeline.
+The program will automatically execute the full pipeline.
 
 ```text
 Dataset loading
-→ Feature extraction
+→ Face detection and preprocessing
+→ ResNet18 feature extraction
 → M-FIG construction
 → Block-QAOA feature selection
 → Classifier training
 → Final evaluation
 ```
 
-If the program runs successfully, the terminal will print the final evaluation result.
-
-Example output format:
+If the program runs successfully, the terminal will print the final evaluation metrics.
 
 ```text
 ================================================================================
@@ -437,7 +534,9 @@ A successful run means that:
 * the dataset path is correctly set,
 * all required packages are installed,
 * feature extraction is completed,
+* M-FIG construction is completed,
 * Block-QAOA feature selection is executed,
+* classifier training is completed,
 * and final model evaluation is printed.
 
 ---
@@ -470,11 +569,13 @@ The image path is constructed as:
 archive/dataset_processed_split/{split}/{fake_type}/{filename}
 ```
 
-Example:
+Examples:
 
 ```bash
 archive/dataset_processed_split/train/Real/example.jpg
-archive/dataset_processed_split/test/Deepfakes/example.jpg
+archive/dataset_processed_split/train/Deepfakes/example.jpg
+archive/dataset_processed_split/test/Real/example.jpg
+archive/dataset_processed_split/test/FaceSwap/example.jpg
 ```
 
 ---
@@ -487,24 +588,24 @@ The dataset is organized by image type and split.
 
 Expected fake type folders are:
 
-| Folder Name         | Description                                     |
-| ------------------- | ----------------------------------------------- |
-| `Real`              | Real face images                                |
-| `DeepFakeDetection` | Fake images from the DeepFakeDetection category |
-| `Deepfakes`         | Fake images generated by Deepfakes method       |
-| `Face2Face`         | Fake images generated by Face2Face method       |
-| `FaceShifter`       | Fake images generated by FaceShifter method     |
-| `FaceSwap`          | Fake images generated by FaceSwap method        |
-| `NeuralTextures`    | Fake images generated by NeuralTextures method  |
+| Folder Name         | Description                                        |
+| ------------------- | -------------------------------------------------- |
+| `Real`              | Real face images                                   |
+| `DeepFakeDetection` | Fake images from the DeepFakeDetection category    |
+| `Deepfakes`         | Fake images generated by the Deepfakes method      |
+| `Face2Face`         | Fake images generated by the Face2Face method      |
+| `FaceShifter`       | Fake images generated by the FaceShifter method    |
+| `FaceSwap`          | Fake images generated by the FaceSwap method       |
+| `NeuralTextures`    | Fake images generated by the NeuralTextures method |
 
 The metadata file `dataset_manifest.csv` should contain the following columns:
 
-| Column      | Description                              |
-| ----------- | ---------------------------------------- |
-| `split`     | Dataset split: `train`, `val`, or `test` |
-| `label`     | Ground-truth label: `REAL` or `FAKE`     |
-| `fake_type` | Folder name of the image category        |
-| `filename`  | Image file name                          |
+| Column      | Description                                      |
+| ----------- | ------------------------------------------------ |
+| `split`     | Dataset split, such as `train`, `val`, or `test` |
+| `label`     | Ground-truth label, either `REAL` or `FAKE`      |
+| `fake_type` | Folder name of the image category                |
+| `filename`  | Image file name                                  |
 
 The current source code uses the `split`, `label`, `fake_type`, and `filename` columns to load images and labels.
 
@@ -514,39 +615,86 @@ The current source code uses the `split`, `label`, `fake_type`, and `filename` c
 
 This project uses the following open-source libraries.
 
-| Library             | Purpose                                                |
-| ------------------- | ------------------------------------------------------ |
-| NumPy               | Numerical computation and array processing             |
-| Pandas              | CSV metadata loading and dataframe processing          |
-| OpenCV              | Image loading, color conversion, and blur detection    |
-| PyTorch             | Neural network implementation and training             |
-| TorchVision         | Pretrained ResNet18 feature extractor                  |
-| facenet-pytorch     | MTCNN-based face detection                             |
-| scikit-learn        | Mutual information, clustering, and evaluation metrics |
-| Qiskit              | Quantum computing framework                            |
-| Qiskit Algorithms   | QAOA implementation                                    |
-| Qiskit Optimization | QUBO modeling and optimization                         |
-| tqdm                | Progress bar visualization                             |
+| Library             | Purpose                                                       |
+| ------------------- | ------------------------------------------------------------- |
+| NumPy               | Numerical computation and array processing                    |
+| Pandas              | CSV metadata loading and dataframe processing                 |
+| SciPy               | Scientific computation dependency used by numerical libraries |
+| Pillow              | Image processing dependency used by vision libraries          |
+| OpenCV Headless     | Image loading, color conversion, and blur detection           |
+| PyTorch             | Neural network implementation and training                    |
+| TorchVision         | Pretrained ResNet18 feature extractor                         |
+| facenet-pytorch     | MTCNN-based face detection                                    |
+| scikit-learn        | Mutual information, clustering, and evaluation metrics        |
+| Qiskit              | Quantum computing framework                                   |
+| Qiskit Algorithms   | QAOA implementation                                           |
+| Qiskit Optimization | QUBO modeling and optimization                                |
+| docplex             | Optimization modeling dependency used by Qiskit Optimization  |
+| tqdm                | Progress bar visualization                                    |
 
-Major open-source components used in the implementation:
+Major open-source components used in the implementation are described below.
 
-### TorchVision ResNet18
+---
+
+### 10.1 TorchVision ResNet18
 
 The project uses a pretrained ResNet18 model from TorchVision as the image feature extraction backbone. The final classification layer is removed so that the model outputs feature vectors instead of class labels.
 
-### facenet-pytorch MTCNN
+---
+
+### 10.2 facenet-pytorch MTCNN
 
 MTCNN is used to detect and crop face regions from the input images before feature extraction.
 
-### Qiskit QAOA
+---
+
+### 10.3 Qiskit QAOA
 
 Qiskit-related packages are used to implement the Block-QAOA feature selection process. The feature selection problem is formulated as a QUBO problem and solved using QAOA.
 
 ---
 
-## 11. Troubleshooting
+### 10.4 OpenCV Headless
 
-### 11.1 Dataset Path Error
+OpenCV Headless is used for image loading, RGB conversion, and Laplacian variance-based blur detection. The headless version is used because this project does not require GUI functions such as `cv2.imshow()`.
+
+---
+
+## 11. Reproducibility Notes
+
+To reproduce the experiment, run the code from the `final` directory.
+
+```bash
+cd Qubit_research/final
+python final.py
+```
+
+The first execution may require internet access because TorchVision may download pretrained ResNet18 weights if they are not already cached.
+
+Execution time may vary depending on the environment.
+
+| Environment       | Expected Behavior                                  |
+| ----------------- | -------------------------------------------------- |
+| CUDA GPU          | Faster feature extraction and training             |
+| CPU only          | Supported, but slower                              |
+| Apple Silicon Mac | Supported through CPU execution, but may be slower |
+| Windows           | Recommended through Anaconda Prompt                |
+| Linux server      | Recommended through conda environment              |
+
+Small numerical differences may occur depending on:
+
+* Python version,
+* PyTorch version,
+* CPU/GPU environment,
+* operating system,
+* random initialization in model training,
+* QAOA optimization behavior.
+
+---
+
+## 12. Troubleshooting
+
+### 12.1 Dataset Path Error
 
 If the dataset file cannot be found, check whether the following file exists:
 
@@ -563,9 +711,9 @@ python final.py
 
 ---
 
-### 11.2 Missing Train or Test Data
+### 12.2 Missing Train or Test Data
 
-The current code requires both train and test splits.
+The current code requires both `train` and `test` splits.
 
 Check whether these folders exist:
 
@@ -578,7 +726,7 @@ Also check whether `dataset_manifest.csv` contains rows where the `split` column
 
 ---
 
-### 11.3 CSV Column Error
+### 12.3 CSV Column Error
 
 If a key error occurs while reading the CSV file, check whether `dataset_manifest.csv` contains the following columns:
 
@@ -591,51 +739,110 @@ filename
 
 ---
 
-### 11.4 ModuleNotFoundError
+### 12.4 ModuleNotFoundError
 
 If a Python package is missing, install dependencies again.
 
 ```bash
-pip install -r requirements.txt
+pip install --no-cache-dir -r requirements.txt
 ```
 
 ---
 
-### 11.5 OpenCV Error
+### 12.5 OpenCV Import Error
 
-If `cv2` cannot be imported, install OpenCV manually.
+If `cv2` cannot be imported, reinstall OpenCV Headless.
 
 ```bash
-pip install opencv-python
+pip uninstall -y opencv-python opencv-python-headless
+pip install opencv-python-headless==4.10.0.84
 ```
 
----
-
-### 11.6 Qiskit Error
-
-If Qiskit-related modules are missing, install the Qiskit packages again.
+Then test:
 
 ```bash
-pip install qiskit qiskit-algorithms qiskit-optimization
+python -c "import cv2; print(cv2.__version__)"
 ```
 
 ---
 
-### 11.7 PyTorch or CUDA Error
+### 12.6 PyTorch Installation Error
 
-The code automatically uses CUDA if it is available.
+If PyTorch installation fails, install PyTorch separately according to the local CPU or GPU environment.
 
-If CUDA is not available, the program runs on CPU. CPU execution is possible, but feature extraction and QAOA optimization may take longer.
+For CPU-only execution, the default pip installation is usually sufficient.
+
+```bash
+pip install torch==2.2.2 torchvision==0.17.2
+```
+
+Then reinstall the remaining packages.
+
+```bash
+pip install --no-cache-dir -r requirements.txt
+```
 
 ---
 
-## 12. Team
+### 12.7 Qiskit-related Error
+
+If Qiskit-related modules are missing, reinstall the Qiskit packages.
+
+```bash
+pip install "qiskit>=1.0,<2.0" "qiskit-algorithms>=0.3,<0.4" "qiskit-optimization>=0.7,<0.8" "docplex>=2.25.236"
+```
+
+---
+
+### 12.8 No Space Left on Device
+
+If the following error appears:
+
+```text
+OSError: [Errno 28] No space left on device
+```
+
+there is not enough disk space to install the dependencies.
+
+Recommended actions:
+
+* remove unused conda environments,
+* clear pip cache,
+* clear conda cache,
+* free several GB of disk space,
+* reinstall with `--no-cache-dir`.
+
+Example:
+
+```bash
+conda clean --all -y
+pip cache purge
+pip install --no-cache-dir -r requirements.txt
+```
+
+---
+
+### 12.9 Slow Execution
+
+This code may take time because it performs:
+
+* MTCNN face detection,
+* ResNet18 feature extraction,
+* feature interaction calculation,
+* QAOA-based optimization,
+* neural network training.
+
+CPU-only execution is supported but may be slow.
+
+---
+
+## 13. Team
 
 **Team Qubit**
 
 | Name | Role                           |
 | ---- | ------------------------------ |
-| 이솔민  | Graduation project team leader |
+| 이솔민  | Graduation project team member |
 | 김은솜  | Graduation project team member |
 | 김정민  | Graduation project team member |
 
@@ -645,6 +852,8 @@ Ewha Womans University
 
 ---
 
-## 13. License
+## 14. License
 
 This repository is intended for academic and educational purposes.
+
+If you use this repository, please refer to the source code and documentation included in this project.
