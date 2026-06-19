@@ -842,7 +842,7 @@ CPU-only execution is supported but may be slow.
 
 | Name | Role                           |
 | ---- | ------------------------------ |
-| 이솔민  | Graduation project team member |
+| 이솔민  | Graduation project team leader |
 | 김은솜  | Graduation project team member |
 | 김정민  | Graduation project team member |
 
